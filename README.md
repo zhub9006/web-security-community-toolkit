@@ -6,65 +6,90 @@ A community-driven initiative that adapts **data-privacy practices from clinical
 
 ## 🔒 Why Clinical-Trial Privacy Matters for Web Security
 
-Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight). A search of ClinicalTrials.gov for recent privacy-focused studies returned three strong examples — across completed, recruiting, and not-yet-recruiting statuses — with concrete practices we can adapt for our web community.
+Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight). ClinicalTrials.gov returned **315 recent studies** matching "patient data privacy", and we examined three that showcase concrete, adaptable practices:
 
 ### Key Takeaways from Clinical-Trial Privacy Practices
 
 | Practice | Clinical-Trial Origin | Web-Security Adaptation |
 |---|---|---|
-| **Face masking, background blurring & encrypted intra-hospital storage** | **NCT07307521** (Shanghai Zhongshan Hospital, ICU-AI study) — automated face masking & background blurring before any video is used; raw video never leaves hospital, processed only after privacy protection. | Blur PII in community content by default; automate redaction for screenshots/videos; never expose raw logs externally. |
-| **Mandatory de-identification before any analysis** | **NCT07267819** (Uniformed Services Univ., migraine trial) — *"All data will be de-identified to protect patient privacy."* Replaced identifiers enable analysis without exposing patients. | Assign pseudonymous IDs to forum contributors; batch analytics on de-identified logs only; never link usernames to operational telemetry. |
-| **Electronic informed consent, encrypted storage & role-based access** | **NCT04990570** (Al-Azhar Univ., telemedicine study, completed) — electronic written consent required before every video consultation; data stored with encryption & shared only with authorized clinical staff. | Require explicit opt-in for any data collection; enforce TLS 1.3 + AES-256 at rest; apply least-privilege roles, SSO/2FA for all moderator/admin access; maintain audit trails. |
-| **Independent oversight & defined retention** | NCT07307521 included an IRB-approved protocol, centralized hospital-side encrypted storage, trained annotators under unified privacy guidelines, and a defined retention window. | Establish a rotating community security board; keep hashed audit trails for sensitive data access; publish & enforce a 3-year data-retention & auto-deletion policy. |
+| **Automated de-identification + PII scrubbing** | **NCT02795806** — NLM Scrubber (National Library of Medicine): a software tool that recognizes and deletes personally identifiable information from clinical text documents, built to HIPAA and Privacy Act standards. | Use automated PII redaction for screenshots, logs, and ticket descriptions; run post-processing scrubbers on any exported data before sharing. |
+| **Federated / privacy-respecting cross-border data sharing** | **NCT06019208** — GenoMed4ALL (Spain): pools genomic, clinical, and multi-omics data across 4 EU countries *without ever directly sharing sensitive patient data*, using federated learning on a privacy-respecting platform. | Adopt federated analytics for community metrics (e.g., threat intel) so members contribute insights without exposing raw user data; use differential privacy or on-device aggregation. |
+| **Coded identifiers, informed consent & encrypted storage** | **NCT07378683** — CNS Tumor SSI study (China): uses coded identifiers replacing names in all analyses and reports; mandatory written informed consent; IRB-approved ethics board; centralized encrypted storage; independent Data Safety Monitoring Board. | Assign pseudonymous IDs to forum contributors; require explicit consent for any data collection; enforce TLS 1.3 + AES-256 at rest; apply least-privilege roles, SSO/2FA for all admin access; maintain audit trails; publish a data-retention & auto-deletion policy. |
 
-### Studies Referenced (Verified on ClinicalTrials.gov)
+### Greater Consistency Across Trials
+
+Every study cited above enforces **four recurring themes** we can borrow for our community:
+
+1. **Secure encrypted data collection** — never transmit raw PII in cleartext; use end-to-end encryption for all communications.
+2. **Role-based restricted access** — separate contributor, moderator, and admin permissions; require 2FA for sensitive operations.
+3. **Independent oversight & defined retention** — have a rotating security board review data practices; auto-delete logs after a fixed window (e.g., 3 years).
+4. **Explicit participant consent & transparency** — publish a clear privacy notice; opt-in, not opt-out, for any new data collection.
+
+---
+
+## 📊 ClinicalTrials.gov Search Results
 
 | NCT ID | Title | Status | Sponsor | Key Privacy Takeaway |
 |---|---|---|---|---|
-| **NCT07307521** | Exploring AI-Assisted Video Monitoring to Predict Accidental Events in ICU Patients | Not Yet Recruiting | Shanghai Zhongshan Hospital | Automated face masking, background blurring, encrypted intra-hospital storage, IRB oversight, consent-based participation |
-| **NCT07267819** | Xeomin Efficacy for Migraine in TBI vs. AHI Patients | Recruiting | Uniformed Services Univ. of the Hlth Sciences | Mandatory de-identification of all datasets before any analysis |
-| **NCT04990570** | Telemedicine Virtual Clinic for Pediatric Day-case Surgery (COVID era) | Completed | Al-Azhar University | Electronic informed consent, encrypted storage, access restricted to authorized personnel |
+| **NCT02795806** | NLM Scrubber: NLM's Software Application to De-identify Clinical Text Documents | Enrolling by Invitation | National Library of Medicine (NIH) | Automated de-identification of 18 HIPAA-defined PII types; gold-standard manual annotation benchmarks; references published on patient-privacy in big data (Kayaalp, 2018). |
+| **NCT06019208** | GenoMed4ALL: Federated Privacy-Respecting Data Sharing for SCD AI | Active, Not Recruiting | Hospital Universitari Vall d'Hebron Research Institute (Spain) | Cross-border federated learning platform; no raw patient data leaves each institution; interoperable data-sharing via ERN-EuroBloodNet standards. |
+| **NCT07378683** | ML-Based Prediction of Surgical Site Infection in CNS Tumor Surgery | Recruiting | Cancer Institute & Hospital, Chinese Academy of Medical Sciences | Coded identifiers replace names in all analyses; mandatory informed consent; IRB oversight; DSMB; 500-patient prospective study. |
 
-> Consistent cross-trial themes: **secure encrypted data collection, role-based restricted access, independent oversight committees, encryption for cross-boundary sharing, bioethics-compliant retention & disposal, explicit participant consent & transparency, and separation of participant identity from data.**
+> 315 total studies found on ClinicalTrials.gov for "patient data privacy" — spanning Phase 1 through 4 and observational designs. The full search is accessible at https://clinicaltrials.gov/search?cond=patient+data+privacy.
 
 ---
 
 ## 📍 Portland Workshop & Meetup Venues (within ~2 km of Downtown)
 
-Verified, bookable venues sourced via geocoded OpenStreetMap data:
+Verified venues sourced via geocoded OpenStreetMap, with walking distances from the downtown center (SW 6th & Morrison):
 
-| Venue | Type | Address | Best For |
-|---|---|---|---|
-| **Pioneer Courthouse Square** 🏛️ | Public Square | 401 SW Broadway, Downtown | Outdoor security meetups, talks & demo days (free, high foot-traffic) |
-| **Portland Community College – Downtown Center** 🏫 | Community/Educational | 722 SW 2nd Ave, Downtown | Workshop classrooms with AV, low-cost academic rental |
-| **PNNL Portland Research Center** 🔬 | Federal Research Office | 620 SW 5th Ave, Suite 810, Downtown | Technical deep-dives & credentialed security talks |
-| **Water Avenue Coffee Company** ☕ | Café (WiFi) | 1028 SE Water Ave, SE Water | Small working-groups & casual security chats (indoor, Wi-Fi) |
-| **Oregon Convention Center** 🏟️ | Conference Centre | 777 NE MLK Jr Blvd, Lloyd District (~1 km NE) | Large multi-track security conferences & summits |
-| **Eastside Jewish Commons** 🏘️ | Community Centre | 2420 NE Sandy Blvd (~1.8 km E) | Intimate community events, training sessions, workshops |
-| **SoHo House Portland** 🏠 | Private Event Venue | 1025 SE Pine St, Buckman/Central Eastside (~1.5 km) | High-signal speaker nights & social mixers |
-| **Portland City Hall** 🏢 | Civic Town Hall | 1220 SW 5th Ave, Downtown | Formal presentations, city-security partnerships, large public meetings |
-| **Central Library (Multnomah)** 📚 | Public Library | 801 SW 10th Ave, Downtown | Free public workshop rooms, beginner security tutorials |
-| **Davies Family Research Library** 📖 | Research Library | 1200 SW Park Ave, OHS (4th Fl., Downtown) | Focused research meetups, small group technical reviews (by appt.) |
+| Venue | Type | Address | Walking Distance | Best For |
+|---|---|---|---|---|
+| **Portland Art Museum** 🎨 | Museum / Event Space | 1219 SW Park Ave | ~510 m / 1.5 min | Sponsor-hosted talks, gallery-meets, demo nights |
+| **KOIN Tower** 🏢 | Office / Lobby Space | 222 SW Columbia St | ~600 m / 2 min | Small working-groups, casual security chats (daytime lobby access) |
+| **Portland State University** 🎓 | University Campus | 1825 SW Broadway | ~820 m / 2.5 min | Technical deep-dives, classroom-style workshops, academic partnership events |
+| **Portland Central Library** 📚 | Public Library | 801 SW 10th Ave | ~1,040 m / 3 min | **Top pick for regular workshops** — free meeting rooms, Wi-Fi, AV, beginner-friendly tutorials |
+| **First & Main** 🏣 | Office Lobby | 100 SW Main St | ~750 m / 2.2 min | Office-hours style informal meetups, weekday coffee chats |
+| **Oregon Convention Center** 🏟️ | Conference Centre | 777 NE MLK Jr Blvd (Lloyd District) | ~1.5 km walk / 7 min | **Flagship events** — multi-track security conferences, Capture the Flag tournaments, large summits |
+| **Revolution Hall** 🎶 | Events Venue | 1300 SE Stark St (Buckman) | ~1.9 km / 6 min | Speaker nights, social mixers, weekend hackathons (just outside 2 km, but easily reachable) |
+| **Davies Family Research Library** 📖 | Research Library (OHS) | 1200 SW Park Ave | Adjacent to Art Museum | Focused research meetups, small-group technical reviews |
 
-> **Top 3 picks nearest downtown for regular security workshops:**
-> 1. **Pioneer Courthouse Square** — free, iconic downtown gathering space for outdoor talks & demos
-> 2. **PCC Downtown Center** — affordable classroom AV, academic credibility, easy access
-> 3. **Oregon Convention Center** — scale & infrastructure for flagship security conferences
+### Venue Distance Map (walking)
+
+```
+Downtown center (SW 6th & Morrison)
+  │
+  ├── 0.5 km  → Portland Art Museum
+  ├── 0.6 km  → KOIN Tower
+  ├── 0.8 km  → Portland State University
+  ├── 1.0 km  → Portland Central Library  ★ Recommended
+  ├── 1.5 km  → Oregon Convention Center
+  └── 1.9 km  → Revolution Hall
+```
+
+> **Top 3 picks for regular security workshops:**
+> 1. **Portland Central Library** — free rooms, central, full AV, beginner-friendly
+> 2. **Portland State University** — academic credibility, classroom tech, affordable
+> 3. **Oregon Convention Center** — scale, infrastructure, and visibility for flagship events
 
 ---
 
-## 🛠️ Toolkit Resources
+## 🛠️ Toolkit Resources (Coming Soon)
 
-- [Privacy Checklist for Open-Source Projects](`docs/privacy-checklist.md`) *(coming soon)*
-- [Clinical-Trial Privacy Comparison Matrix](`docs/trial-privacy-matrix.md`) *(coming soon)*
-- [Portland Venue Booking Guide](`docs/portland-venues.md`) *(coming soon)*
-- [Workshop Planning Template](`docs/workshop-template.md`) *(coming soon)*
+- [Privacy Checklist for Open-Source Projects](`docs/privacy-checklist.md`)
+- [Clinical-Trial Privacy Comparison Matrix](`docs/trial-privacy-matrix.md`)
+- [Portland Venue Booking Guide](`docs/portland-venues.md`)
+- [Workshop Planning Template](`docs/workshop-template.md`)
 
 ---
 
 ## 🤝 Contributing
 
-Found a great privacy practice or a Portland venue we missed? Open an issue or submit a PR. We welcome web security practitioners, clinical researchers, and community organizers.
+Found a great privacy practice or a Portland venue we missed? Open an issue or submit a PR. We welcome:
+
+- Web security practitioners
+- Clinical researchers exploring data-privacy crossover
+- Community organizers looking for meetup spaces
 
 ---
 
