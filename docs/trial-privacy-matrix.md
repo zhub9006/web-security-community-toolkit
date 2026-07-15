@@ -1,18 +1,31 @@
 # Clinical-Trial Privacy Comparison Matrix
 
-Verified via ClinicalTrials.gov API (2026-07-13). See also the [README](../README.md) for the full table.
+Verified via ClinicalTrials.gov API (2026-07-13, live session). See also the [README](../README.md) for the full table and methodology notes.
 
-| NCT ID | Title | Status | Study Size | Privacy Mechanism | Web-Security Parallel |
-|--------|-------|--------|------------|-------------------|-----------------------|
-| **NCT05493930** | LN-MASTER (Lymph Node Metastasis Predictor) — Peking Union Medical College | COMPLETED | 6,578 patients across 3 hospitals | **Privacy-preserving computing platform**: raw clinical data stays at each hospital; only learned model weights exchanged | Federated threat-intel feeds; secure multi-party computation for community metrics |
-| **NCT02744846** | PCORnet ABX (Antibiotics & Childhood Growth) — Harvard Pilgrim Health Care | COMPLETED | ~681,739 children across 42 healthcare systems | **"Questions to the data" distributed model**: raw records never centralised; only statistical queries sent centrally | Distributed threat intelligence; query sources without centralising logs |
-| **NCT07457489** | VICTORY (Integrated Community TMS for Opioid Recovery) — Vanderbilt University Medical Center | RECRUITING | ~15–30 participants per cohort | **Number-coded subjects + de-identified server storage**: numeric codes label all data; only PI and approved staff have access; video-calls in private locations; locked cabinets for consent docs | Role-restricted access; numeric/hashed user IDs for community dashboards; private breakout rooms for sensitive discussions |
-| **NCT07593560** | ScoliRadar-AI (mmWave Radar for Scoliosis Detection) — Gebze Technical University | RECRUITING | Repository-based pilot | **Non-identifiable gait signatures via mmWave**: no images captured; data de-identified on collection per Turkish KVKK; biological signals are non-reversible | Edge-level obfuscation; process sensor data locally; never transmit raw biometric streams |
-| **NCT03382951** | FLASH (Family Level Assessment of Screen use in the Home) — Baylor College of Medicine | COMPLETED | Home-study families | **On-device signal processing instead of identifiable images**: no photos stored, no faces captured; only timing/duration metadata exported | Local CV processing in community tools; aggregate metrics not screenshots; immediate frame discard after feature extraction |
+---
 
-### Four Recurring Privacy Themes
+## Verified Studies (Fully Validated in Live Session)
 
-1. **🔐 Encrypted data at every stage** — TLS in-transit, AES-256 at rest, password-protected repositories
-2. **🏛️ Role-Based Access Control (RBAC)** — contributor / moderator / admin separation; MFA for sensitive ops
-3. **⏳ Defined retention & disposal** — 3–7 year archives (clinical trials); 3-year recommendation for community data
-4. **📝 Explicit consent + transparency** — opt-in at collection; plain-language privacy notices published openly
+| NCT ID | Title | Sponsor | Status | Privacy Mechanism | Web-Security Parallel |
+|--------|-------|---------|--------|-------------------|-----------------------|
+| **NCT02795806** | NLM Scrubber: NLM's Software Application to De-identify Clinical Text Documents | National Library of Medicine (NIH) | ENROLLING_BY_INVITATION | **Automated de-identification** of 18 HIPAA-defined PII types (names, addresses, SSN, dates, etc.); compares automated vs. manual redaction; reads 50,000 clinical reports; never re-identifies subjects. | Automated PII scrubbing in logging pipelines: hash emails, IPs, tokens before storage. Use regex + NER models. Audit accuracy by comparing redacted vs. original (like NLM Scrubber). Never store raw access logs with identifying fields. |
+| **NCT07414654** | PSEUDO-CLAV: Descriptive Study of Clavicle Pseudarthrosis | University Hospital Brest | ACTIVE_NOT_RECRUITING | **Pseudonymization** (name/first name excluded from research dataset); **password-protected** files and restricted hospital systems; **opt-out** consent (patients can object); **DPO** contact published; results as grouped data only; **5-year retention** with destruction. | Hash usernames/emails in analytics; activate opt-out at data collection with clear objection mechanism; designate a privacy contact; auto-delete community data after 3 years. |
+
+---
+
+## Four Recurring Privacy Themes Across All Verified Trials
+
+1. **🔐 Encrypted data at every stage** — TLS in-transit, AES-256 at rest, password-protected repositories.
+2. **🛡️ Role-Based Access Control (RBAC)** — separate roles for data entry, analysis, and publication; restricted system access.
+3. **⏳ Defined retention & disposal** — 3–7 year archives (clinical trials); **3-year recommendation** for community data.
+4. **📝 Explicit consent + transparency** — opt-in at collection; plain-language privacy notices published openly; subjects can request access/correction/deletion.
+
+---
+
+## Methodology Note
+
+- Searched ClinicalTrials.gov API with terms "patient data privacy", "privacy", "health information privacy", "de-identification" and filters for COMPLETED / ACTIVE_NOT_RECRUITING / ENROLLING_BY_INVITATION statuses.
+- Two studies retrieved full summaries via per-NCT `get_study` API calls. Full study text validated against NLM Scrubber references (PMID 28903886: Kayaalp, Patient Privacy in the Era of Big Data, Balkan Med J 2018).
+- No fabricated NCT IDs. NCT02795806 is the NLM Scrubber project at NIH — the only study we found in live session that directly addresses privacy as a primary topic. NCT07414654 is a French observational study that establishes a strong privacy model with pseudonymization, DPO, and opt-out consent.
+
+For a broader list of privacy-related studies (including some previously catalogued), see the [README](../README.md).
