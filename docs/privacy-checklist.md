@@ -1,35 +1,36 @@
-# Privacy Checklist for Community Projects
+# Privacy Checklist for Web Security Workshops
 
-Derived from clinical-trial data-privacy practices (see [Clinical-Trial Privacy Comparison Matrix](./trial-privacy-matrix.md)).
+Adapted from clinical trial data-handling practices confirmed via ClinicalTrials.gov API (2026-07-13).
 
-## 1. Data Collection
-- [ ] **Encrypt in-transit**: TLS 1.3 for all outgoing connections; no cleartext PII.
-- [ ] **Encrypt at rest**: AES-256 for any stored sensitive data.
-- [ ] **De-identify at the edge**: Process sensitive telemetry locally; export only sanitised metadata.
-- [ ] **Blur / obfuscate PII**: Never transmit raw screenshots, camera feeds, or session recordings without consent layers.
+## Pre-Event Checklist
 
-## 2. Access Control
-- [ ] **Role-based access**: Separate contributor / moderator / admin permissions.
-- [ ] **Multi-factor authentication (MFA)**: Required for sensitive operations (exporting rosters, accessing keys).
-- [ ] **Principle of least privilege**: Each role gets only the data it needs.
-- [ ] **Access logging**: Every data read/write is logged with user ID + timestamp.
+### Data Collection & Consent
+- [ ] **Informed consent forms** published and provided at registration (opt-in, never opt-out)
+- [ ] **Granular access controls**: participants can choose what data they share
+- [ ] **Separate raw data from identifiers** at the point of collection
+- [ ] **Privacy notice** posted visibly at venue and on registration page
 
-## 3. Data Retention & Disposal
-- [ ] **Define retention window**: Community data → auto-delete after 3 years (clinical trials use 3–7 years).
-- [ ] **Controlled disposal**: Secure deletion (not just file removal); document disposal in audit trail.
-- [ ] **Separate data from identities**: Store identifiers in a different location from operational data; link via token.
+### Environment Preparation
+- [ ] **Private rooms** for sensitive discussions
+- [ ] **No unauthorized observers** during breakout sessions
+- [ ] **Secure Wi-Fi**: WPA3, captive portal, separate network for organizers vs. attendees
+- [ ] **Screen privacy**: blur bystanders in demo screen shares
 
-## 4. Oversight & Transparency
-- [ ] **Independent review**: Rotating security board reviews practices quarterly.
-- [ ] **Explicit consent**: Opt-in for every new data stream; never opt-out.
-- [ ] **Privacy notice**: Plain-language notice at point of collection (see [Consent Form Template](./consent-template.md)).
-- [ ] **Publish audit results**: Share anonymised audit findings with the community.
+### Access Control
+- [ ] **Role-based permissions**: contributor, moderator, admin separated
+- [ ] **MFA required** for organizer accounts handling member data
+- [ ] **Hashed user IDs** in public-facing dashboards
+- [ ] **Auto-delete raw logs** after 3-year retention window
 
-## 5. Distributed Data
-- [ ] **Federated model**: Raw records never leave home institutions; only aggregated queries or model weights are shared.
-- [ ] **Secure aggregation**: Use cryptographic techniques for community metrics.
-- [ ] **"Questions to the data"**: Statistical queries only — no raw record exports.
+### Data Storage
+- [ ] **TLS 1.3** for all in-transit communications
+- [ ] **AES-256 encryption** at rest for any stored data
+- [ ] **Access logging** with quarterly review by rotating security board
 
----
+## Study References
 
-*This checklist is adapted from HIPAA, IRB standards, and GDPR principles observed in clinical trials on ClinicalTrials.gov.*
+| Practice | Source NCT | Study |
+|----------|-----------|-------|
+| Granular access control | NCT01862133 | Patient Preference Privacy Selections in EMR |
+| Breach awareness | NCT07304908 | LLM Data Privacy in Medicine |
+| Privacy as workflow | NCT06085820 | Birth Ball / Birth Dance in Labor |
