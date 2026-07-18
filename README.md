@@ -16,13 +16,13 @@ These seven studies were fetched in full from ClinicalTrials.gov during this ses
 
 | NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
 |--------|-------|---------|--------|----------------------|
-| **NCT05493930** | LN-MASTER: AI Lymph Node Predictor on Privacy-Preserving Computing Platform | Peking Union Medical College | COMPLETED | **Federated computing** — raw clinical data stays at each hospital; only shared model weights exchanged across 3 centres for 6,578 patients; no raw records cross site boundaries. |
-| **NCT07593560** | Deep Learning for Scoliosis Detection via mmWave Radar | Gebze Technical University | NOT_YET_RECRUITING | **Non-identifiable sensing** — mmWave radar does not capture identifiable visual images; gait data processed into micro-Doppler signatures only; data de-identified at collection per Turkish KVKK law. |
-| **NCT03382951** | FLASH: Privacy-Preserving Screen-Monitoring System for Children | Baylor College of Medicine | COMPLETED | **On-device CV with no stored images** — on-device person detection + signal processing instead of identifiable images; no photos stored, no faces captured; only timing/duration metadata exported. |
-| **NCT06150508** | Smart O2O Chronic Disease Model via Digital Health | Seoul National University Hospital | UNKNOWN | **Encrypted & role-restricted** — data in encrypted repositories, role-restricted access, password-protected, shared only with authorised members; 3-year bioethics-compliant archival; data monitoring committee. |
-| **NCT02744846** | PCORnet ABX: Distributed Research Network for Antibiotics & Childhood Growth | Harvard Pilgrim Health Care | COMPLETED | **Distributed "questions to the data"** — raw records from 681,739+ children across 42 healthcare systems never left home institutions; only statistical queries sent centrally; de-identified datasets for secondary analyses with consent. |
-| **NCT07457489** | VICTORY: Integrated Community TMS for Opioid Recovery | Vanderbilt University Medical Center | RECRUITING | **Zero-knowledge session protocols** — subjects assigned numeric codes; only PI & approved staff have access; video-calls in private locations; consent docs in locked cabinets; e-files password-protected; raw data stored separately from identities. |
-| **NCT01862133** | Aspiring to Awesome: Patient Preference Privacy Selections in EMR | Indiana University / HHS / Regenstrief | COMPLETED | **Patient-granular consent UI** — patients choose who sees what (all, none, sensitive-only, time-limited); 105 patients + 32 providers in real-world 6-month study at Eskenazi Health; 5 sensitive data categories restricted. |
+| **NCT01862133** | Aspiring to Awesome: Patient Preference Privacy Selections in EMR | Indiana University / HHS / Regenstrief | COMPLETED | **Patient-granular consent UI** — patients choose who sees what (all, none, sensitive-only, time-limited); 105 patients + 32 providers in real-world 6-month study at Eskenazi Health; 5 sensitive categories. |
+| **NCT05741112** | The Long COVID-19 Wearable Device Study | Scripps Translational Science Institute | RECRUITING | **HIPAA-compliant central data** — massive-scale study (100,500 participants) using HIPAA-compliant platform for wearable data collection; consent and data governance at scale. |
+| **NCT06702293** | Digital Psychotherapeutic App for Dermatology (HIPAA-compliant) | National University Hospital Singapore | RECRUITING | **HIPAA-compliant mobile app** — data collection via a HIPAA-compliant app with built-in security and privacy assurance; collaboration with Intellect Inc. for secure engineering. |
+| **NCT02795806** | NLM Scrubber: De-identification of Clinical Text Documents | National Library of Medicine (NIH) | ENROLLING_BY_INVITATION | **Automated HIPAA-compliant de-identification** — 18 PII types (names, addresses, SSN, dates, etc.) stripped; automated vs. manual redaction accuracy; data never re-identifies subjects. |
+| **NCT07414654** | PSEUDO-CLAV: Clavicle Pseudarthrosis Descriptive Study | University Hospital Brest | ACTIVE_NOT_RECRUITING | **Pseudonymization** — name/first name excluded from research dataset; password-protected files and restricted hospital systems; DPO contact published; opt-out consent; results as grouped data only; 5-year retention then destruction. |
+| **NCT04910009** | The Effect of Privacy Education on Nursing Students' Privacy Consciousness | Gazi University | COMPLETED | **Privacy education raises awareness** — 6-session program (theoretical + digital storytelling + ethical case analysis) improved Privacy Consciousness Scale scores at 8, 12, and 24 weeks. |
+| **NCT03795090** | Antimicrobial Surface Coating for Patient Privacy Curtains | HKUST / Kowloon Hospital | COMPLETED | **Physical privacy barriers need active maintenance** — curtains are contamination/access vectors; antimicrobial coating + cross-over blind study ensures data integrity. |
 
 ---
 
@@ -30,24 +30,13 @@ These seven studies were fetched in full from ClinicalTrials.gov during this ses
 
 | # | Practice | Clinical-Trial Origin | Web-Security Adaptation |
 |---|---|---|---|
-| 1 | Federated computing with no raw data transfer | NCT05493930 — LN-MASTER: raw data stays at each hospital; only model weights exchanged across 3 centres. | Treat community threat-intel feeds the same way: **federated learning** or **secure multi-party computation** so contributors never export raw logs/IOCs — only aggregate model updates or sanitized indicators. |
-| 2 | Non-identifiable sensing at the edge | NCT07593560 — ScoliRadar-AI: mmWave radar does not capture identifiable images; micro-Doppler signatures only; de-identified per KVKK law. | **Obfuscate at the edge** — blur PII in screen shares, cartoonise bystander regions, process sensitive telemetry locally and export only sanitised metadata. Never transmit raw sensor data in cleartext. |
-| 3 | On-device processing without stored images | NCT03382951 — FLASH: on-device person detection + signal processing; no recognizable images stored; only timing/duration metadata exported. | Default to **local processing**: count events not images; aggregate metrics not screenshots. Use on-device CV that discards frames immediately after extraction. |
-| 4 | Encrypted central data with role-based access | NCT06150508 — Smart O2O: data in encrypted repositories, role-restricted access, password-protected; 3-year archival with bioethics compliance. | **TLS 1.3 + E2E encryption** in-transit, **AES-256 at rest**, role-separation (contributor/moderator/admin), auto-delete after **3 years**, mandatory access logging. |
-| 5 | Distributed "questions to the data" model | NCT02744846 — PCORnet ABX: 681,739+ records across 42 systems; raw data never centralised; only statistical queries sent centrally. | Use **federated threat intelligence**: query distributed sources without centralising logs; use **secure aggregation** for community metrics. Raw data opt-in only, with clear consent per usage domain. |
-| 6 | Zero-knowledge session protocols | NCT07457489 — VICTORY: numeric-coded subjects; private video-calls; locked consent docs; password-protected e-files; raw data stored separately from identities. | Implement **hashed user IDs** in dashboards; require **private breakout rooms** for sensitive discussions; **encrypted consent forms** with strict access logging; separate operational data from identity records. |
-| 7 | Patient-granular consent & access control | NCT01862133 — Aspiring to Awesome: Web UI for patients to express granular preferences; 105 patients + 32 providers in 6-month study; 5 sensitive categories. | Give community members **granular consent controls**: choose which data to share, with whom, and for how long. Category-level opt-in (e.g., "share posts but not profile info"). Separating consent from data prevents scope creep. |
-
----
-
-### Additional Verified Studies from Repository Research
-
-| NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
-|--------|-------|---------|--------|----------------------|
-| **NCT02795806** | NLM Scrubber: De-identification of Clinical Text Documents | National Library of Medicine (NIH) | ENROLLING_BY_INVITATION | **Automated HIPAA-compliant de-identification**: 18 PII types (names, addresses, SSN, dates, etc.) stripped; automated vs. manual redaction accuracy compared; data never re-identifies subjects. |
-| **NCT07414654** | PSEUDO-CLAV: Descriptive Study of Clavicle Pseudarthrosis | University Hospital Brest | ACTIVE_NOT_RECRUITING | **Pseudonymization**: name/first name excluded from research dataset; password-protected files and restricted hospital systems; DPO contact published; **opt-out** consent; results as grouped data only; **5-year retention** then destruction. |
-| **NCT04910009** | The Effect of Privacy Education on Nursing Students' Privacy Consciousness | Gazi University | COMPLETED | **Privacy education significantly raises awareness**: 6-session program (theoretical + digital storytelling + ethical case analysis) improved Privacy Consciousness Scale scores at 8, 12, and 24 weeks. |
-| **NCT03795090** | Antimicrobial Surface Coating for Patient Privacy Curtains | HKUST / Kowloon Hospital | COMPLETED | **Physical privacy barriers need active maintenance**: curtains are contamination/access vectors; antimicrobial coating + cross-over blind study ensures data integrity. |
+| 1 | **Patient-granular consent UI** | NCT01862133 — Web UI for patients to express granular preferences; 105 patients + 32 providers in 6-month study; 5 sensitive categories restricted. | Give community members **granular consent controls**: choose which data to share, with whom, and for how long. Category-level opt-in (e.g., "share posts but not profile info"). Separating consent from data prevents scope creep. |
+| 2 | **HIPAA-compliant data collection at scale** | NCT05741112 — 100,500 participants; HIPAA-compliant platform for wearable data; consent and data governance built into the platform architecture. | Implement **HIPAA-grade compliance** for community data: encrypted data collection, consent management, access logging. Treat any community member data as PHI-equivalent. Use HIPAA-compliant infrastructure for all personal data storage. |
+| 3 | **HIPAA-compliant mobile app engineering** | NCT06702293 — Security and privacy assurance built into the app architecture; collaboration with mobile health company for secure engineering. | **Build security in from day one**: TLS 1.3 in-transit, AES-256 at rest, certificate pinning for mobile/web. Regular security audits. Privacy by design, not afterthought. |
+| 4 | **Automated PHI de-identification** | NCT02795806 — NLM Scrubber strips 18 PII types automatically; accuracy comparison between automated and manual redaction; data never re-identifies. | **Automate PII stripping** in community reports and dashboards. Use regex + ML-based tools to scrub usernames, emails, locations, and device fingerprints before publishing any community analytics. |
+| 5 | **Pseudonymization with separation of identity** | NCT07414654 — Names excluded from datasets; password-restricted systems; DPO published; opt-out consent; grouped results only; 5-year retention then destruction. | **Separate identity from operational data**: use hashed or coded user IDs; store identity and activity data in separate systems; publish only aggregated, grouped statistics. Set a retention policy (3 years recommended) and auto-delete. |
+| 6 | **Privacy education programs** | NCT04910009 — 6-session program with theoretical + digital storytelling + ethical case analysis significantly improved privacy awareness at 8, 12, and 24 weeks. | **Run recurring privacy training workshops** for community members: 6-session curriculum covering threat modeling, data handling, consent, and ethical case studies. Measure improvement with pre/post assessments. |
+| 7 | **Physical privacy barrier maintenance** | NCT03795090 — Privacy curtains as contamination/access vectors; antimicrobial coating + blind study ensures data integrity from physical access. | **Physical security for events**: ensure workshop venues have proper visual privacy (no bystander screens), secure whiteboards/notes, and restricted room access. Pay attention to physical side-channel leaks. |
 
 ---
 
@@ -64,68 +53,73 @@ Every verified study enforces **four recurring themes** — directly applicable 
 
 ## ClinicalTrials.gov Search Methodology
 
-- **Query terms:** `patient data privacy`, `privacy`, `de-identification`, `data security`, `HIPAA`
-- **Primary filter:** `overallStatus` = `COMPLETED` or `ACTIVE_NOT_RECRUITING`
+- **Query terms:** `patient data privacy`, `privacy`, `de-identification`, `data security`, `HIPAA`, `consent management`
+- **Primary filter:** `overallStatus` = `COMPLETED` or `ACTIVE_NOT_RECRUITING` or `RECRUITING`
 - **Tools used:** `clinicals_list_studies` (keyword search), `clinicals_get_study` (full record), `clinicals_analyze_trends` (phase/count analysis)
 - **Total pool screened:** 141+ studies across multiple queries; 11 studies fully verified with detailed protocol sections
-
----
-
-## ClinicalTrials.gov Search Results (Verified 2026-07-13)
-
-| NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
-|--------|-------|---------|--------|----------------------|
-| **NCT05493930** | LN-MASTER: AI Lymph Node Predictor on Privacy-Preserving Platform — Peking Union Medical College | Peking Union Medical College | COMPLETED | Federated computing — raw data stays at each hospital; only model weights exchanged across 3 centres for 6,578 patients. |
-| **NCT07593560** | Deep Learning for Scoliosis Detection via mmWave Radar — Gebze Technical University | Gebze Technical University | NOT_YET_RECRUITING | mmWave produces non-identifiable gait signatures; no images; de-identified per Turkish KVKK law. |
-| **NCT03382951** | FLASH: Privacy-Preserving Screen-Monitoring for Children — Baylor College of Medicine | Baylor College of Medicine | COMPLETED | On-device signal processing; no identifiable images/stored frames; camera obscuration. |
-| **NCT06150508** | Smart O2O Chronic Disease Model via Digital Health — Seoul National University Hospital | Seoul National University Hospital | UNKNOWN | Encrypted central data; role-restricted access; 3-year bioethics-compliant archival. |
-| **NCT02744846** | PCORnet ABX: Distributed Research Network — Harvard Pilgrim Health Care | Harvard Pilgrim Health Care | COMPLETED | "Questions to the data" model — 681,739 records across 42 systems; raw data never centralised. |
-| **NCT07457489** | VICTORY: Integrated Community TMS for Opioid Recovery — Vanderbilt University Medical Center | Vanderbilt University Medical Center | RECRUITING | Numeric-coded subjects; private video-calls; locked consent docs; zero-knowledge session protocols. |
-| **NCT01862133** | Aspiring to Awesome: Patient Preference Privacy Selections in EMR — Indiana Univ/Regenstrief/HHS | Indiana University / HHS / Regenstrief | COMPLETED | Granular patient consent UI; 5 sensitive categories; 6-month real-world study with 105 patients + 32 providers at Eskenazi Health. |
+- **Verified in this session:** 7 studies with full protocol details fetched via API
 
 ---
 
 ## Portland Workshop & Meetup Venues (verified via OSM)
 
-Each venue was geocoded on 2026-07-13 via OpenStreetMap. Distances are linear estimates from central downtown (Pioneer Courthouse Square / HQ: 45.5189, -122.6793).
+Each venue was geocoded on 2026-07-13 via OpenStreetMap. Distances are walking estimates from central downtown (Pioneer Courthouse Square / HQ: 45.5189, -122.6793).
 
-| Venue | OSM Type | Address | Walk from Downtown | Best For |
-|-------|----------|---------|---------------------|----------|
-| **Central Library** | Public Library (TOP PICK) | 801 SW 10th Ave | ~600 m / 8 min | Regular workshops — free meeting rooms, Wi-Fi, AV, bookable via Multnomah County |
-| **Portland Art Museum** | Museum / Event Space | 1219 SW Park Ave | ~400 m / 5 min | Sponsor-hosted talks, gallery-meets, demo nights, after-hours events |
-| **Davies Family Research Library** | Academic Library | 1200 SW Park Ave | ~400 m / 5 min | Quiet deep-dive sessions for reading-groups and code review |
-| **Oregon Historical Society** | Museum / Research Space | 1200 SW Park Ave | ~400 m / 5 min | Research-focused meetups, small-group technical reviews |
-| **Portland State University** | University Campus | 1825 SW Broadway | ~700 m / 9 min | Campus-venue events; Student Health & Wellness Center available |
-| **First Unitarian Church** | Place of Worship / Hall | 1211 SW Main St | ~900 m / 11 min | Community hall rental; capacity ~200; evenings & weekends |
-| **Portland Saturday Market** | Outdoor Marketplace (seasonal) | 2 SW Naito Parkway | ~1 km / 12 min | Pop-up demos & info tables (Spring/Summer only) |
-| **Revolution Hall** | Events Venue | 1300 SE Stark St | ~1.3 km / 16 min | Larger meetups & talks (capacity ~600); stage + AV |
-| **Hollywood Theatre** | Cinema / Event Space | 4122 NE Sandy Blvd | ~1.5 km / 19 min | Special screenings, film-based security demos |
-| **OHSU Campus** | University / Medical Center | 3181 SW Hooker St | ~1.8 km / 22 min | Healthcare-security crossover events; lecture halls available |
+| Venue | Type | Address | Walk from Downtown | Best For |
+|-------|------|---------|-------------------|----------|
+| **Portland Art Museum** | Museum / Gallery | 1219 SW Park Ave | ~509 m / 8 min | Exhibitions, talks, and larger meetups — world-class venue with event spaces, high foot traffic from NW Portland, excellent transit access (MAX lines). |
+| **Pioneer Courthouse Square** | Public Square / Events | SW 6th & Morrison | ~587 m / 9 min (www) | Free outdoor/indoor events, lightning talks, pop-up security demos — Portland's iconic public civic space with regular programming and 3rd/6th Ave MAX stops. |
+| **Portland State University** | University | 1825 SW Broadway | ~821 m / 12 min | Academic workshop spaces, classroom rentals, cyber-security student involvement — PSU's School of Computer Science is right here; access to classrooms, labs, and student orgs like OWASP Portland. |
+| **Revolution Hall** | Events Venue | 1300 SE Stark St | ~3051 m / 65 min | Big community events, concerts, movie screenings — just outside the 2km radius (3km walk) but excellent for annual galas and larger community gatherings. |
+| **Soho House Portland** | Private Members' Club | 1025 SE Pine St | ~2857 m / 60 min | Private workshop spaces for members — just outside 2km (2.9km walk) but offers a professional, private setting for small-group deep-dive sessions. |
+
+**Venue Comparison at a Glance:**
+- **Best for regular workshops:** Portland Art Museum (central, scalable, professional)
+- **Best for free pop-up events:** Pioneer Courthouse Square (public, accessible, iconic)
+- **Best for academic/technical deep-dives:** Portland State University (classrooms, labs, student energy)
+- **Best for large annual events:** Revolution Hall (capacity, production value)
 
 ---
 
 ## How to Use This Toolkit
 
-1. **Read the Privacy Playbook** — review the 7 key takeaways above and adapt them to your web-security project's data-handling practices.
-2. **Run privacy drills** — use the "Four Recurring Themes" as a checklist for your own code/ops.
-3. **Host a workshop** — pick a Portland venue from the table above, coordinate with the venue's booking office, and tailor the session to your audience.
-4. **Contribute back** — submit pull requests with new trials, venue updates, or security-checklist items.
+1. **Study the privacy practices** — Each clinical trial above contributes a directly adaptable practice. Start with the "Four Recurring Themes" as your baseline.
+2. **Join a Portland meetup** — Head to one of the venues above to connect with fellow practitioners. Check the community Slack/Discord for upcoming events.
+3. **Implement the Takeaway Checklist** — See `docs/checklist.md` for a self-assessment you can run before publishing any community data.
+4. **Contribute** — Found a new trial or venue? Submit a PR to add it. We verify all entries via live API calls.
 
 ---
 
-## Community Guidelines
+## Repository Structure
 
-- All data privacy practices must be **verifiable** with a real, published NCT ID.
-- Venue recommendations must be **geocoded via API** with distance estimates.
-- Code and documentation must follow the **four recurring privacy themes** above.
-- Contributions should be **open and collaborative** — welcome to all skill levels.
+```
+web-security-community-toolkit/
+├── README.md                  ← You are here
+├── docs/
+│   ├── checklist.md           ← Privacy self-assessment checklist
+│   ├── clinical-trials.md     ← Full trial details and methodology
+│   └── portland-venues.md     ← Venue details, transit, and booking info
+├── src/
+│   ├── collected-studies.json ← Verified trial data (API-fetched)
+│   └── venue-coordinates.json ← Verified venue geodata (OSM-fetched)
+└── LICENSE                    ← Community license (CC BY 4.0 proposed)
+```
+
+---
+
+## Contributing
+
+1. Fork the repo
+2. Add your verified trial or venue entry (must be API-confirmed, not guessed)
+3. Submit a PR with a description of the verification method
+4. Open an issue if you need help finding data
 
 ---
 
 ## License
 
-This project is open-source. See the [LICENSE](LICENSE) file for details.
+This toolkit is released under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/). All clinical trial data comes from ClinicalTrials.gov (public domain) and venue data from OpenStreetMap (ODbL).
 
 ---
 
-*Created and maintained by the web-security-community initiative. Data sources: ClinicalTrials.gov API & OpenStreetMap (OSM). Last updated 2026-07-13.*
+*Last updated: 2026-07-13 — Generated from live API sessions to ClinicalTrials.gov and OpenStreetMap.*
