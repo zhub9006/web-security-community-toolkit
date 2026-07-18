@@ -1,0 +1,48 @@
+{
+  "session_date": "2026-07-13",
+  "query_terms": ["patient data privacy", "data privacy protection health information security", "HIPAA", "consent management"],
+  "total_screened": 3,
+  "studies": [
+    {
+      "nctId": "NCT06150508",
+      "title": "Smart O2O Model for Chronic Diseases Management via Digital Health",
+      "sponsor": "Seoul National University Hospital",
+      "collaborators": ["Korea Health Industry Development Institute", "Seoul National University"],
+      "status": "NOT_YET_RECRUITING",
+      "studyType": "INTERVENTIONAL",
+      "participantCount": 1000,
+      "location": "Pyeongchang-gun, Gangwon-do, South Korea",
+      "privacyPractices": ["end-to-end encryption", "consent-based POD access", "password protection", "Data Monitoring Committee", "3-year bioethics-standard archiving", "restricted access to authorized members only"],
+      "webAdaptation": "consent-gated data portals; E2E encryption; MFA; DPO appointment; 3-year retention with auto-delete; granular consent UI"
+    },
+    {
+      "nctId": "NCT06853158",
+      "title": "MULTI-MUSIQOLS: Music Therapy for Sickle Cell Disease",
+      "sponsor": "University of California, Irvine",
+      "collaborators": ["NCCIH (NIH)", "UCSF", "Case Western Reserve University", "Prisma Health-Upstate", "UMass Worcester"],
+      "status": "RECRUITING",
+      "studyType": "INTERVENTIONAL",
+      "participantCount": 90,
+      "location": "Case Western Reserve University + Prisma Health (2 sites)",
+      "privacyPractices": ["HIPAA-compliant telehealth platform (Zoom Health Professional)", "community center venues with consent protocols", "multi-site IRB oversight", "standardized consent & assessment across sites"],
+      "webAdaptation": "encrypted platforms for virtual workshops; consistent security SLAs across venues; multi-chapter compliance; standardized data handling"
+    },
+    {
+      "nctId": "NCT06998927",
+      "title": "PAV+ and Work of Breathing in Critically Ill Patients",
+      "sponsor": "Argentinian Intensive Care Society",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "studyType": "OBSERVATIONAL",
+      "participantCount": 20,
+      "location": "Hospital Británico de Buenos Aires, Argentina",
+      "privacyPractices": ["informed consent required", "full privacy protection", "ICU data protocols"],
+      "webAdaptation": "non-negotiable baseline: signed informed consent; zero-trust data access; quarterly privacy audits; accessible privacy language"
+    }
+  ],
+  "fourRecurringThemes": [
+    "Secure encrypted data collection",
+    "Role-based restricted access",
+    "Independent oversight + defined retention",
+    "Explicit consent + transparency"
+  ]
+}

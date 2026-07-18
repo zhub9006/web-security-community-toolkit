@@ -1,0 +1,60 @@
+{
+  "session_date": "2026-07-13",
+  "centerPoint": {"latitude": 45.5189007, "longitude": -122.6792966, "label": "Pioneer Courthouse Square"},
+  "venues": [
+    {
+      "name": "Portland Community College – Downtown Center",
+      "type": "community_college",
+      "address": "722 SW 2nd Ave, Portland, OR 97204",
+      "latitude": 45.5174725,
+      "longitude": -122.6745007,
+      "distanceM": 500,
+      "transit": "G Line MAX"
+    },
+    {
+      "name": "Central Library",
+      "type": "library",
+      "address": "801 SW 10th Ave, Portland, OR 97205",
+      "latitude": 45.5191921,
+      "longitude": -122.6832062,
+      "distanceM": 600,
+      "transit": "NS Line MAX (3rd Ave/6th Ave)"
+    },
+    {
+      "name": "The Old Church Concert Hall",
+      "type": "events_venue",
+      "address": "1422 SW 11th Ave, Portland, OR 97201",
+      "latitude": 45.5151431,
+      "longitude": -122.6856087,
+      "distanceM": 300,
+      "transit": "11th Ave walk"
+    },
+    {
+      "name": "Pioneer Courthouse Square",
+      "type": "public_square",
+      "address": "SW 6th & Morrison, Portland, OR 97204",
+      "latitude": 45.5189007,
+      "longitude": -122.6792966,
+      "distanceM": 0,
+      "transit": "3rd/6th Ave MAX"
+    },
+    {
+      "name": "Oregon Convention Center",
+      "type": "conference_centre",
+      "address": "777 NE MLK Jr Blvd, Portland, OR 97204",
+      "latitude": 45.5283240,
+      "longitude": -122.6631050,
+      "distanceM": 1500,
+      "transit": "CL Line (Oregon Convention Center stop)"
+    },
+    {
+      "name": "Portland City Hall",
+      "type": "townhall",
+      "address": "1220 SW 5th Ave, Portland, OR 97204",
+      "latitude": 45.5150147,
+      "longitude": -122.6791133,
+      "distanceM": 400,
+      "transit": "NS/MAX lines"
+    }
+  ]
+}
