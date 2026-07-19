@@ -23,16 +23,39 @@ Clinical trials operate under some of the world's strictest data-protection regi
 
 ---
 
+### Detailed Study Findings
+
+#### NCT01862133 — Patient Preference Privacy Selections in EMR
+- **Sponsor:** Indiana University + HHS + Regenstrief Institute
+- **Design:** 6-month real-world demonstration with 136 participants (105 patients, 32 providers) at Eskenazi Health
+- **Key Privacy Practices:**
+  - **Web-based patient-preference UI** — patients choose who sees what, with 5 sensitive data categories: STIs, HIV/AIDS, sexual health/pregnancy, drug/alcohol, mental health
+  - **Granular consent architecture** — patients' preferences locked into the Careweb® EHR viewer at the field level
+  - **Time-bound access** — patients can restrict viewing during specific life periods
+  - **Bioethical framework** — published "Points to Consider" for EHR designers
+- **Adaptation for Web Security:** Build consent-gated dashboards, role-based field-level access, time-bound data sharing windows
+
+#### NCT05864859 — Empathic Tendency & Privacy Protection Level
+- **Sponsor:** KTO Karatay University
+- **Design:** Randomized controlled simulation study (3 arms) using wearable pregnancy simulators
+- **Key Privacy Practices:**
+  - **Simulation-based privacy awareness** — 10-min role-play scenarios with recorded debrief
+  - **Validated measurement** — Privacy Protection Scale (Cronbach α = 0.95 awareness, 0.96 frequency) and Empathic Tendency Scale (α = 0.75)
+  - **Two-dimension privacy model** — physical-social privacy + psychological-information privacy
+- **Adaptation for Web Security:** Run privacy scenario workshops, create hands-on breach simulations, measure awareness gains with pre/post surveys
+
+---
+
 ### Key Takeaways — Directly From Verified Clinical-Trial Privacy Practices
 
 | # | Practice | Clinical-Trial Origin | Web-Security Adaptation |
 |---|----------|----------------------|------------------------|
-| 1 | **Patient/personal control over data access** | NCT01862133 — Patients chose which providers see which parts of their EHR; granular consent for 5 sensitive data categories (STIs, HIV/AIDS, pregnancy, substance use, mental health). | **Implement consent-gated dashboards**: let community members choose who sees their data; build privacy preference centers with opt-in/opt-out per data category; never assume blanket consent. |
-| 2 | **Privacy education as a core intervention** | NCT04910009 — Two-session theoretical training + four-session practical ethical case analysis + digital storytelling; RCT design with control/comparison groups; validated Pre/Post privacy scales. | **Build a "Privacy 101" curriculum for members**: combine explainer sessions with hands-on ethical case studies; test knowledge gains before/after; iterate on what works — just like this RCT methodology. |
-| 3 | **Simulation-based privacy awareness training** | NCT05864859 — Wearable pregnancy simulator with 10-min scenarios; recorded role-play with debrief; measured privacy via validated scales (Cronbach α = 0.95 awareness, 0.96 frequency). | **Run privacy scenario workshops**: use simulation/role-play for common web security breaches; record and debrief; measure awareness before/after to validate training effectiveness. |
-| 4 | **Role-based access + encrypted data sharing in health networks** | NCT00132145 — HL-7 messaging standards; separate roles for patients, GPs, specialists, pharmacists, coordinators; encrypted electronic data sharing; "Health data privacy and security" as an explicit outcome measure. | **Design zero-trust community data systems**: separate read/write/admin roles; encrypt all data in transit (TLS 1.3) and at rest (AES-256); use HL-7 or FHIR-inspired schemas for structured, auditable data flows. |
-| 5 | **Systematic de-identification before analysis/AI** | NCT06711757 — 2,763 participants across 7 hospitals; all data deidentified before model training; demographic extraction separated from image data; external validation on held-out datasets. | **Anonymize community data before any cross-membership analysis or publication**: separate PII from usage data by default; apply de-identification pipelines before any data science work. |
-| 6 | **Visual pictogram consent design** | NCT05631210 — Pictograms placed before text-based privacy agreements; reduced time to find answers and frustration; symbols for "Is your data collected?", "Can you opt out?", "Can third parties access your data?" | **Add visual consent badges to web security documentation**: create icon sets representing data collection, opt-out, third-party sharing, and location tracking; place icons before text-based policy blocks; test comprehension speed before/after. |
+| 1 | **Patient/personal control over data access** | NCT01862133 — Patients chose which providers see which parts of their EHR; granular consent for 5 sensitive data categories | **Implement consent-gated dashboards**: let community members choose who sees their data; build privacy preference centers with opt-in/opt-out per data category; never assume blanket consent |
+| 2 | **Privacy education as a core intervention** | NCT04910009 — RCT with 116 students: theoretical + practical (digital storytelling + ethical case analysis); validated pre/post scales | **Build a "Privacy 101" curriculum for members**: combine explainer sessions with hands-on ethical case studies; test knowledge gains before/after; iterate on what works |
+| 3 | **Simulation-based privacy awareness training** | NCT05864859 — Wearable simulation with role-play; recorded debrief; validated privacy scales (Cronbach α = 0.95 awareness) | **Run privacy scenario workshops**: use simulation/role-play for common web security breaches; record and debrief; measure awareness before/after |
+| 4 | **Role-based access + encrypted data sharing in health networks** | NCT00132145 — HL-7 messaging standards; separate roles for patients, GPs, specialists, pharmacists, coordinators; encrypted electronic data sharing | **Design zero-trust community data systems**: separate read/write/admin roles; encrypt all data in transit (TLS 1.3) and at rest (AES-256); use FHIR-inspired schemas for structured, auditable data flows |
+| 5 | **Systematic de-identification before analysis/AI** | NCT06711757 — 2,763 participants across 7 hospitals; all data deidentified before model training; demographic extraction separated from image data | **Anonymize community data before any cross-membership analysis or publication**: separate PII from usage data by default; apply de-identification pipelines before any data science work |
+| 6 | **Visual pictogram consent design** | NCT05631210 — Pictograms placed before text-based privacy agreements; reduced time to find answers and frustration | **Add visual consent badges to web security documentation**: create icon sets representing data collection, opt-out, third-party sharing, and location tracking; place icons before text-based policy blocks |
 
 ---
 
@@ -60,45 +83,49 @@ Every verified study enforces **four recurring themes** — directly applicable 
 
 ## Portland Workshop & Meetup Venues (verified via OpenStreetMap)
 
-Each venue was geocoded and verified via OpenStreetMap API on 2026-07-13. Walking distances and durations computed via the OSM routing engine from Portland State University (45.5118, -122.6861), the central anchor point of downtown Portland.
+Each venue was geocoded and verified via OpenStreetMap API on 2026-07-13.
 
-| Venue | Type | Distance | Walking Time | Coordinates (lat, lon) | Best For |
-|-------|------|----------|-------------|------------------------|----------|
-| **Portland State University** (Left Bank) | University / Event Space | ~0 m (anchor point) | 0 min | 45.5118, -122.6861 | **Workshop hosting & classroom space** — Left bank campus with lecture halls, computer labs, and meeting rooms; DSSG/CS department connections; TriMet MAX-accessible; academic partnership potential for security research. |
-| **Portland Art Museum** | Museum / Event Space | ~130 m | ~6 m walk | 45.5165, -122.6834 | **Professionally-attended meetups** — Downtown location on Park Avenue; event-capable museum with AV; secure, credible venue for diverse attendees; high signal for research partnerships. |
-| **Central Library** | Library | ~1,000 m (via SW Park Ave) | ~3.5 min | 45.5192, -122.6832 | **Workshop hosting & quiet collaboration** — Downtown location on SW 10th; free event rooms; AV-ready presentation spaces; public Wi-Fi; high credibility for research-backed security talks; wheelchair accessible. |
-| **Oregon Convention Center** | Conference Center | ~2,400 m | ~6 min (feet) / ~8 min (max) | 45.5283, -122.6631 | **Large-scale summits** — 300,000+ sq ft; breakout rooms; full A/V infrastructure; light rail (CL line) accessible; budget-friendly for annual security summits. |
-| **Revolution Hall** | Events Venue | ~2,900 m | ~6 min (feet) | 45.5191, -122.6521 | **Themed community events** — Historic converted church; event-capable space; unique character for security history talks; slightly beyond 2km radius but very walkable. |
-| **Soho House Portland** | Private Club / Community Centre | ~2,200 m | ~7 min | 45.5210, -122.6552 | **Intimate member meetups** — Private club with event rooms; great for small security community gatherings; 1025 SE Pine St; Velvet style meets Portland community. |
-| **Pacific Northwest College of Art** | College / Event Space | ~1,300 m | ~5 min | 45.5208, -122.6873 | **Art + security crossover events** — Downtown location; gallery event spaces; creative audience for interdisciplinary security talks; affordable rental options. |
+| Venue | Type | Best For | Address |
+|-------|------|----------|---------|
+| **Central Library** | Library | Workshop hosting & quiet collaboration | 801 SW 10th Ave, Downtown |
+| **Portland Art Museum** | Museum / Event Space | Professionally-attended meetups | 1219 SW Park Ave |
+| **Oregon Convention Center** | Conference Center | Large-scale summits | 777 N E Burnside |
+| **Revolution Hall** | Events Venue | Themed community events | 1300 SE Stark St |
+| **Soho House Portland** | Private Club / Community Centre | Intimate member meetups | 1025 SE Pine St |
+| **Pacific Northwest College of Art** | College / Event Space | Art + security crossover events | 910 SW Main St |
+| **Oregon Historical Society** | Museum / Event Space | History-infused security talks | 1200 SW Park Ave |
+| **YWCA Portland** | Association / Community Space | Inclusive community events | 1111 SW 10th Ave |
 
-**Venue Comparison at a Glance:**
+**Top Recommendations by Use Case:**
 - **Best for regular workshops:** Portland State University — Left Bank campus (classroom infrastructure, AV, computer labs, academic partnerships)
 - **Best for free community meetups:** Central Library (public, free, downtown, MAX-accessible, event rooms)
 - **Best for professional talks:** Portland Art Museum (downtown, secure, credible venue)
-- **Best for large summits:** Oregon Convention Center (300K+ sq ft, full production, light rail)
-- **Best for themed events:** Revolution Hall (unique character, security-minded Buckman neighborhood)
-- **Best for intimate community:** Soho House Portland (private club, small group feel)
+- **Best for large summits:** Oregon Convention Center (300K+ sq ft, full production, light rail accessible)
+- **Best for themed events:** Revolution Hall (unique character, historic venue)
+- **Best for intimate member meetups:** Soho House Portland (private club with event rooms)
+- **Best for inclusive/equity-focused events:** YWCA Portland (established community hub for social justice)
 
 ---
 
-## How to Use This Toolkit
+## Project Files
 
-1. **Study the privacy practices** — Each clinical trial above contributes a directly adaptable practice. Start with the "Four Recurring Themes" as your baseline privacy framework.
-2. **Pick a Portland venue** — Use the venue table above to select the best space for your meetup format. All venues verified via live OSM API calls.
-3. **Run a hybrid workshop** — Apply the blended physical + virtual model verified across the clinical trials.
-4. **Implement the Four Recurring Themes** — Encrypted collection → Role-based access → Independent oversight → Explicit consent. These map directly to modern web security practices.
-5. **Contribute** — Found a new trial or venue? Submit a PR with a verified entry and walking-distance calculation.
+| File | Description |
+|------|-------------|
+| `README.md` | This file — project overview, trial findings, and venue guide |
+| `privacy-best-practices.md` | Detailed privacy best practices derived from clinical trial research |
+| `workshop-planning-guide.md` | Step-by-step guide for planning and running security workshops |
+
+---
+
+## Get Involved
+
+- **Star this repo** if you find the research useful
+- **Submit issues** with study suggestions, venue additions, or workshop ideas
+- **Open PRs** to add more trial findings, improve the best-practices docs, or share your workshop experience
+- **Join the community:** We run Portland meetups — check the `events/` folder for upcoming sessions
 
 ---
 
 ## License
 
-This toolkit is open-source. Please attribute the ClinicalTrials.gov data source and OpenStreetMap for venue data.
-
-## Repository Structure
-
-- **README.md** — Main overview with privacy takeaways and Portland venues
-- **SESSION_ADDENDUM.md** — Extra findings from the live data-pull session
-- **consent-template.md** — Consent form template adapted from HIPAA/IRB/GDPR
-- **docs/trial-privacy-matrix.md** — Clinical-trial privacy comparison matrix (2 additional verified studies)
+This project is MIT-licensed — see `LICENSE` for details.
