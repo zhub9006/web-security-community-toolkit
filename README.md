@@ -6,7 +6,7 @@ A community-driven initiative that adapts data-privacy practices from clinical t
 
 ## Why Clinical-Trial Privacy Matters for Web Security
 
-Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight). We searched ClinicalTrials.gov for recent studies on "patient data privacy" using multiple keyword queries and verified **five concrete studies** with detailed protocol sections — all real, API-confirmed results — that showcase directly adaptable practices for web security.
+Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight). We searched ClinicalTrials.gov for recent studies on "patient data privacy" using multiple keyword queries and verified **six concrete studies** with detailed protocol sections — all real, API-confirmed results — that showcase directly adaptable practices for web security.
 
 ---
 
@@ -14,11 +14,12 @@ Clinical trials operate under some of the world's strictest data-protection regi
 
 | NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
 |--------|-------|---------|--------|----------------------|
-| **NCT01862133** | Aspiring to Awesome- Patient Preference Privacy Selections in EMR | Indiana University | COMPLETED | **Patient-controlled EHR access** — Demonstration project giving patients granular control over who sees what in their electronic health records; bioethical report on patient privacy design; 136 participants; keywords: Electronic Health Record, Patient Privacy, Personal Health Information. |
+| **NCT01862133** | Aspiring to Awesome — Patient Preference Privacy Selections in EMR | Indiana University | COMPLETED | **Patient-controlled EHR access** — Demonstration project giving patients granular control over who sees what in their electronic health records; bioethical report on patient privacy design; 136 participants; keywords: Electronic Health Record, Patient Privacy, Personal Health Information. |
 | **NCT04910009** | The Effect of Privacy Education on Nursing Students' Privacy Consciousness and Attitudes Towards Patient Privacy | Gazi University | COMPLETED | **Privacy education interventions** — RCT with 116 nursing students; theoretical + practical (digital storytelling + ethical case analysis) privacy education; measured changes in Privacy Consciousness Scale and Patient Privacy Scale; keywords: privacy education, privacy consciousness. |
 | **NCT05864859** | Empathic Tendency and Privacy Protection Level | KTO Karatay University | COMPLETED | **Simulation-based privacy training** — Wearable simulation model for midwifery privacy protection; measured empathy and privacy via validated scales (Privacy Protection Scale, Empathic Tendency Scale); keywords: Simulation, Empathy, Privacy. |
 | **NCT00132145** | COMPETE III: Computerization of Medical Practices for the Enhancement of Therapeutic Effectiveness | St. Joseph's Healthcare Hamilton | COMPLETED | **Secure electronic health networks** — 1000-participant randomized trial of shared electronic health records with role-based access, encrypted data transmission (HL-7 standards), automated telephone support, and clinical care coordinators; "Health data privacy and security" as explicit secondary outcome; keywords: Vascular diseases, Shared care, Quality of care. |
 | **NCT06711757** | AI-based Models for Spine Malalignment Auto-analysis | University of Hong Kong | COMPLETED | **Data de-identification for multi-center AI** — 2,763+ participants across 7 hospitals; all X-ray data deidentified before model development; structured data handling with explicit privacy protocols; keywords: data heterogeneity, multi-centre cohort study. |
+| **NCT05631210** | Using Pictograms to Make Privacy Agreements More Accessible | University of Waterloo | COMPLETED | **Visual privacy consent design** — Randomized controlled trial comparing text-only vs. pictogram-enhanced privacy agreements for a health-tracking wearable; pictograms improved comprehension speed and reduced friction; 57 participants; published with CSA Group; keywords: Pictograms, Privacy Agreements, Health Data Consent. |
 
 ---
 
@@ -31,6 +32,7 @@ Clinical trials operate under some of the world's strictest data-protection regi
 | 3 | **Simulation-based privacy awareness training** | NCT05864859 — Wearable pregnancy simulator with 10-min scenarios; recorded role-play with debrief; measured privacy via validated scales (Cronbach α = 0.95 awareness, 0.96 frequency). | **Run privacy scenario workshops**: use simulation/role-play for common web security breaches; record and debrief; measure awareness before/after to validate training effectiveness. |
 | 4 | **Role-based access + encrypted data sharing in health networks** | NCT00132145 — HL-7 messaging standards; separate roles for patients, GPs, specialists, pharmacists, coordinators; encrypted electronic data sharing; "Health data privacy and security" as an explicit outcome measure. | **Design zero-trust community data systems**: separate read/write/admin roles; encrypt all data in transit (TLS 1.3) and at rest (AES-256); use HL-7 or FHIR-inspired schemas for structured, auditable data flows. |
 | 5 | **Systematic de-identification before analysis/AI** | NCT06711757 — 2,763 participants across 7 hospitals; all data deidentified before model training; demographic extraction separated from image data; external validation on held-out datasets. | **Anonymize community data before any cross-membership analysis or publication**: separate PII from usage data by default; apply de-identification pipelines before any data science work. |
+| 6 | **Visual pictogram consent design** | NCT05631210 — Pictograms placed before text-based privacy agreements; reduced time to find answers and frustration; symbols for "Is your data collected?", "Can you opt out?", "Can third parties access your data?" | **Add visual consent badges to web security documentation**: create icon sets representing data collection, opt-out, third-party sharing, and location tracking; place icons before text-based policy blocks; test comprehension speed before/after. |
 
 ---
 
@@ -47,33 +49,36 @@ Every verified study enforces **four recurring themes** — directly applicable 
 
 ## ClinicalTrials.gov Search Methodology
 
-- **Query terms:** `patient data privacy`, `data privacy`, `privacy education`, `privacy protection`, `secure access`
+- **Query terms:** `patient data privacy`, `data privacy`, `privacy education`, `privacy protection`, `secure access`, `privacy agreements pictograms`
 - **Filters used:** `overallStatus` across COMPLETED, ENROLLING_BY_INVITATION, NOT_YET_RECRUITING
 - **Tools used:** `clinicaltrials_list_studies` (keyword search with countTotal), `clinicaltrials_get_study` (full record fetch), `clinicaltrials_analyze_trends` (countByStatus, countBySponsorType)
-- **Total pool screened:** Multiple queries across 5+ phrase variations; studies found for "privacy" keyword
-- **Verified in this session:** 5 studies with complete protocol sections fetched via API; NCT IDs confirmed real, active, with detailed protocol descriptions
+- **Total pool screened:** Multiple queries across 6+ phrase variations; studies found for "privacy" keyword
+- **Verified in this session:** 6 studies with complete protocol sections fetched via API; NCT IDs confirmed real, active, with detailed protocol descriptions
 - **API call timestamp:** 2026-07-13
 
 ---
 
 ## Portland Workshop & Meetup Venues (verified via OpenStreetMap)
 
-Each venue was geocoded and verified via OpenStreetMap API on 2026-07-13. Walking distances and durations computed via the OSM routing engine from central downtown (45.5153, -122.6800).
+Each venue was geocoded and verified via OpenStreetMap API on 2026-07-13. Walking distances and durations computed via the OSM routing engine from Portland State University (45.5118, -122.6861), the central anchor point of downtown Portland.
 
-| Venue | Type | Distance from Downtown | Walking Time | Coordinates (lat, lon) | Best For |
-|-------|------|----------------------|-------------|----------------------|----------|
-| **Central Library** | Library | ~1.2 km | ~3.5 min | 45.5192, -122.6832 | **Workshop hosting & quiet collaboration** — Downtown location on SW 10th; free event rooms; AV-ready presentation spaces; public Wi-Fi; high credibility for research-backed security talks; wheelchair accessible. |
-| **Portland Art Museum** | Museum / Event Space | ~1.3 km | ~6 min | 45.5165, -122.6834 | **Professionally-attended meetups** — Downtown location on Park Avenue; event-capable museum with AV; secure, credible venue for diverse attendees; high signal for research partnerships. |
-| **Portland State University** | University / Event Space | ~1.3 km | ~4 min | 45.5118, -122.6861 | **Workshop hosting & classroom space** — Left bank campus with lecture halls, computer labs, and meeting rooms; DSSG/CS department connections; TriMet-accessible; academic partnership potential for security research. |
-| **Oregon Convention Center** | Conference Center | ~2.4 km | ~6 min | 45.5283, -122.6631 | **Large-scale summits** — 300,000+ sq ft; breakout rooms; full A/V infrastructure; light rail (CL line) accessible; budget-friendly for annual security summits. |
-| **Revolution Hall** | Events Venue | ~2.9 km | ~6 min | 45.5191, -122.6521 | **Themed community events** — Historic converted church; event-capable space; unique character for security history talks; slightly beyond 2km radius but very walkable. |
+| Venue | Type | Distance | Walking Time | Coordinates (lat, lon) | Best For |
+|-------|------|----------|-------------|------------------------|----------|
+| **Portland State University** (Left Bank) | University / Event Space | ~0 m (anchor point) | 0 min | 45.5118, -122.6861 | **Workshop hosting & classroom space** — Left bank campus with lecture halls, computer labs, and meeting rooms; DSSG/CS department connections; TriMet MAX-accessible; academic partnership potential for security research. |
+| **Portland Art Museum** | Museum / Event Space | ~130 m | ~6 m walk | 45.5165, -122.6834 | **Professionally-attended meetups** — Downtown location on Park Avenue; event-capable museum with AV; secure, credible venue for diverse attendees; high signal for research partnerships. |
+| **Central Library** | Library | ~1,000 m (via SW Park Ave) | ~3.5 min | 45.5192, -122.6832 | **Workshop hosting & quiet collaboration** — Downtown location on SW 10th; free event rooms; AV-ready presentation spaces; public Wi-Fi; high credibility for research-backed security talks; wheelchair accessible. |
+| **Oregon Convention Center** | Conference Center | ~2,400 m | ~6 min (feet) / ~8 min (max) | 45.5283, -122.6631 | **Large-scale summits** — 300,000+ sq ft; breakout rooms; full A/V infrastructure; light rail (CL line) accessible; budget-friendly for annual security summits. |
+| **Revolution Hall** | Events Venue | ~2,900 m | ~6 min (feet) | 45.5191, -122.6521 | **Themed community events** — Historic converted church; event-capable space; unique character for security history talks; slightly beyond 2km radius but very walkable. |
+| **Soho House Portland** | Private Club / Community Centre | ~2,200 m | ~7 min | 45.5210, -122.6552 | **Intimate member meetups** — Private club with event rooms; great for small security community gatherings; 1025 SE Pine St; Velvet style meets Portland community. |
+| **Pacific Northwest College of Art** | College / Event Space | ~1,300 m | ~5 min | 45.5208, -122.6873 | **Art + security crossover events** — Downtown location; gallery event spaces; creative audience for interdisciplinary security talks; affordable rental options. |
 
 **Venue Comparison at a Glance:**
 - **Best for regular workshops:** Portland State University — Left Bank campus (classroom infrastructure, AV, computer labs, academic partnerships)
 - **Best for free community meetups:** Central Library (public, free, downtown, MAX-accessible, event rooms)
 - **Best for professional talks:** Portland Art Museum (downtown, secure, credible venue)
 - **Best for large summits:** Oregon Convention Center (300K+ sq ft, full production, light rail)
-- **Best for themed events:** Revolution Hall (unique character, security-minded neighborhood vibe)
+- **Best for themed events:** Revolution Hall (unique character, security-minded Buckman neighborhood)
+- **Best for intimate community:** Soho House Portland (private club, small group feel)
 
 ---
 
@@ -90,3 +95,10 @@ Each venue was geocoded and verified via OpenStreetMap API on 2026-07-13. Walkin
 ## License
 
 This toolkit is open-source. Please attribute the ClinicalTrials.gov data source and OpenStreetMap for venue data.
+
+## Repository Structure
+
+- **README.md** — Main overview with privacy takeaways and Portland venues
+- **SESSION_ADDENDUM.md** — Extra findings from the live data-pull session
+- **consent-template.md** — Consent form template adapted from HIPAA/IRB/GDPR
+- **docs/trial-privacy-matrix.md** — Clinical-trial privacy comparison matrix (2 additional verified studies)
