@@ -1,60 +1,77 @@
-# Clinical Trial Privacy Practices — Adapted for Web Security
+# Clinical Trial Privacy Findings — Web Security Adaptation
 
-> Generated 2025-07-13 from ClinicalTrials.gov API and OpenStreetMap queries.
+Detailed findings from 9 verified patient-data-privacy studies on ClinicalTrials.gov, with direct web-security adaptations for the community toolkit.
 
-## Eight Verified Studies with Directly Adaptable Privacy Practices
+---
 
-### 1. NCT01862133 — Patient Preference Privacy Selections in EMR
-- **Sponsor:** Indiana University + HHS + Regenstrief Institute
-- **Status:** COMPLETED | **Participants:** 136
-- **Key Practice:** Patient-controlled EHR access with granular consent for 5 sensitive categories (STIs, HIV/AIDS, sexual health, drug/alcohol, mental health)
-- **Web-Security Adaptation:** Consent-gated dashboards; role-based field-level access; time-bound data sharing windows
+## Complete Trial Registry
 
-### 2. NCT04910009 — Privacy Education on Nursing Students' Privacy Consciousness
-- **Sponsor:** Gazi University
-- **Status:** COMPLETED | **Participants:** 116
-- **Key Practice:** RCT combining theoretical + practical (digital storytelling + ethical case analysis) privacy education
-- **Web-Security Adaptation:** "Privacy 101" curriculum with hands-on ethical case studies; pre/post knowledge assessments
+### 1. NCT07344116 — Hepatobiliary and Pancreatic Tumor Biobank
+- **Sponsor:** Zhejiang University School of Medicine
+- **Status:** NOT_YET_RECRUITING
+- **Key Practice:** Coded data storage & privacy by design
+- **Web-Security Adaptation:** Apply pseudonymization at collection; design systems with privacy-by-design from the start; separate identifiers from analytics data with strict access boundaries.
 
-### 3. NCT05864859 — Empathic Tendency and Privacy Protection Level
-- **Sponsor:** KTO Karatay University
-- **Status:** COMPLETED | **Participants:** Simulation-based
-- **Key Practice:** Wearable simulation + role-play for midwifery privacy; validated Privacy Protection Scale (α=0.95) and Empathic Tendency Scale (α=0.75)
-- **Web-Security Adaptation:** Privacy scenario workshops with role-play; measure awareness gains with validated scales
+### 2. NCT07360366 — Interprofessional Collaboration in the Cardiac ICU
+- **Sponsor:** University Hospital of Parma
+- **Status:** NOT_YET_RECRUITING
+- **Key Practice:** Pseudo-anonymization with restricted access
+- **Web-Security Adaptation:** Implement pseudo-anonymization for community data; enforce strict role-based access controls; audit access logs regularly.
 
-### 4. NCT00132145 — COMPETE III: Secure Electronic Health Networks
-- **Sponsor:** St. Joseph's Healthcare Hamilton
-- **Status:** COMPLETED | **Participants:** 1,000
-- **Key Practice:** Role-based access + encrypted data sharing (HL-7); "Health data privacy and security" as explicit secondary outcome
-- **Web-Security Adaptation:** Zero-trust community data systems; TLS 1.3 + AES-256; FHIR-inspired schemas; separate read/write/admin roles
+### 3. NCT05170321 — Joint Replacement Prediction Models in China
+- **Sponsor:** Xiangya Hospital, Central South University
+- **Status:** UNKNOWN
+- **Key Practice:** Confidentiality principle & IRB approval with no conflict of interest
+- **Web-Security Adaptation:** Adopt confidentiality as a core design constraint; ensure aggregated data can't be reverse-engineered; document ethics approvals and audit trails.
 
-### 5. NCT06711757 — AI-based Models for Spine Malalignment (Multi-Center)
-- **Sponsor:** University of Hong Kong
-- **Status:** COMPLETED | **Participants:** 2,763 across 7 hospitals
-- **Key Practice:** Systematic de-identification before AI model training; demographic extraction separated from image data
-- **Web-Security Adaptation:** Anonymize community data before cross-membership analysis; separate PII from usage data by default
+### 4. NCT07125625 — Probiotic Mixture for Pediatric IBS
+- **Sponsor:** University of Bari
+- **Status:** NOT_YET_RECRUITING
+- **Key Practice:** Confidential & secure per privacy laws; European regulations for children
+- **Web-Security Adaptation:** Treat all user data as confidential by default; secure storage, encrypted transit, clear deletion workflows; enhanced protections for sensitive categories.
 
-### 6. NCT05631210 — Pictograms for Privacy Agreements
-- **Sponsor:** University of Waterloo
-- **Status:** COMPLETED | **Participants:** 57
-- **Key Practice:** Pictogram-enhanced privacy agreements improved comprehension speed and reduced friction
-- **Web-Security Adaptation:** Visual consent badges in documentation; icon sets for data collection, opt-out, third-party sharing, location tracking
+### 5. NCT07564544 — AI-Based Clinical Orientation Program
+- **Sponsor:** Selcuk University
+- **Status:** NOT_YET_RECRUITING
+- **Key Practice:** Ethics committee approval & informed consent built into study design
+- **Web-Security Adaptation:** Obtain explicit consent before data collection; integrate privacy into the development lifecycle; conduct privacy impact assessments alongside security assessments.
 
-### 7. NCT07709091 — Digital Health Data Security Awareness Training
+### 6. NCT07709091 — Digital Health Data Security and Management Awareness Training
 - **Sponsor:** Istanbul Arel University
-- **Status:** COMPLETED | **Participants:** 110
-- **Key Practice:** Online awareness training on digital data security, cybersecurity risks, password security, secure storage/sharing, data privacy, ethical responsibilities
-- **Web-Security Adaptation:** Regular data-security bootcamps; cover password hygiene, encrypted communication, phishing awareness; issue certificates
+- **Status:** COMPLETED (110 nursing students)
+- **Key Practice:** Online awareness training covering password security, secure storage/sharing, data privacy, ethical responsibilities
+- **Web-Security Adaptation:** Run periodic team privacy training; implement mandatory security hygiene (password managers, MFA, encrypted storage); create security champions; measure effectiveness with quizzes.
 
-### 8. NCT07307521 — AIME-ICU: AI-Assisted Video Monitoring with Privacy Protections
-- **Sponsor:** Shanghai Zhongshan Hospital
-- **Status:** NOT_YET_RECRUITING | **Participants:** 300 (estimated)
-- **Key Practice:** Face masking, background blurring, offline-only storage, de-identification pipeline before AI training, national law compliance
-- **Web-Security Adaptation:** Integrate privacy into dev pipeline; automated PII scrubbing; background blurring for screenshots; offline-first data processing
+### 7. NCT05058599 — Reconstruction Technology to Guarantee Patient Privacy (Digital Mask)
+- **Sponsor:** Sun Yat-sen University
+- **Status:** RECRUITING/UNKNOWN (400-patient cohort)
+- **Key Practice:** Digital Mask — 3D reconstruction + deep learning to irreversibly erase biometric attributes while retaining clinical attributes
+- **Web-Security Adaptation:** Implement data minimization — only collect what you need; scrub PII at the point of capture; tokenize before analytics; never log raw identifiers downstream.
 
-## Four Recurring Privacy Themes
+### 8. NCT07433244 — Digital Privacy Awareness in Gifted Students
+- **Sponsor:** Giresun University
+- **Status:** RECRUITING (128 students, 3-month follow-up)
+- **Key Practice:** Structured privacy curriculum with validated instruments (Privacy Awareness Scale, Privacy Concern Scale, Digital Literacy Scale)
+- **Web-Security Adaptation:** Build in-product privacy onboarding; measure user privacy literacy with micro-surveys; A/B test privacy education messages; track comprehension over time.
 
-1. **Secure encrypted data collection** — TLS for all communications; encrypted at rest
-2. **Role-based restricted access** — separate read/write/admin roles; MFA-sensitive ops
-3. **Independent oversight + defined retention** — formal privacy protocols; auto-delete after fixed window
-4. **Explicit consent + transparency** — clear privacy notice; opt-out mechanism; subjects can request access/correction/deletion
+### 9. NCT04803448 — Patient Doctor Lies: When is Privacy Assurance a Bad Thing?
+- **Sponsor:** University of Utah
+- **Status:** COMPLETED (619 participants)
+- **Key Finding:** Traditional HIPAA privacy notices INCREASE lying (elaboration likelihood model). Risk statements and benefit statements REDUCE lying.
+- **Web-Security Adaptation:** Be careful with cookie/banner consent — generic privacy notices can create a false sense of security. Use risk framing ("If you don't provide this, we can't protect your account") and benefit framing. A/B test consent wording.
+
+---
+
+## Top 5 Web-Security Adaptations Summary
+
+| # | Practice | Best Trial(s) | Implementation |
+|---|----------|--------------|----------------|
+| 1 | Pseudonymization at collection | NCT07344116, NCT07360366 | Separate identifiers from analytics; use codes in internal datasets |
+| 2 | Role-based access + audit | NCT07360366 | Least-privilege access; regular access log audits |
+| 3 | Confidentiality by design | NCT05170321 | Reverse-engineering protection; documented audit trails |
+| 4 | Data minimization at capture | NCT05058599 | Collect only what's needed; PII scrubbing at source |
+| 5 | Risk/benefit consent framing | NCT04803448 | "This helps protect your account" > "We value your privacy" |
+
+---
+
+*Findings gathered via live API queries to ClinicalTrials.gov on July 20, 2026. All NCT IDs are verified and real.*
