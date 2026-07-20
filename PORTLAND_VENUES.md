@@ -1,112 +1,96 @@
-# Portland Event Venues — Workshop & Meetup Spaces
+# Portland Event Venues — Within ~2km of Downtown Portland
 
-This guide covers community centres, event spaces, and venues within **~2 km of downtown Portland, Oregon** suitable for hosting web security workshops, meetups, and community events. All locations verified via OpenStreetMap geocoding on July 20, 2026.
-
----
-
-## Summary Table
-
-| Venue | Type | Address | Walk from Downtown | Best For |
-|-------|------|---------|-------------------|----------|
-| [Pioneer Courthouse Square](#pioneer-courthouse-square) | Public Square | SW 6th Ave & Washington St | 0 min (center) | Outdoor meetups, informal gatherings |
-| [Portland Art Museum](#portland-art-museum) | Museum/Event Venue | 1219 SW Park Ave | ~0.5 km (1.5 min) | Sponsor-branded events, elegant workshops |
-| [Portland Center Stage (The Armory)](#portland-center-stage-at-the-armory) | Theatre/Event Venue | 128 NW 11th Ave, Pearl District | ~1 km (3 min) | Larger workshops, demo nights, presentations |
-| [Revolution Hall](#revolution-hall) | Events Venue | 1300 SE Stark St, Buckman | ~2.4 km (7 min) | Community meetups, talks, networking |
-| [West End Theater](#west-end-theater) | Community Theatre | 1220 SW Taylor St | ~0.3 km (1 min) | Intimate workshops, film screenings |
-| [Portland State University](#portland-state-university) | University | 1825 SW Broadway | ~0.8 km (2.5 min) | Hackathons, panels, larger events |
-| [Portland Central Library](#portland-central-library) | Public Library | 801 SW 10th Ave | ~1.0 km (3 min) | Free workshops, open-source sessions |
-| [First Unitarian Church](#first-unitarian-church) | Community/B Rental | 1211 SW Main St | ~0.7 km (2 min) | Inclusive meetups, panels, film screenings |
-| [Hi-Lo (Hostel)](#hi-lo-hostel) | Co-working/Event Space | 320 SW Harvey Milk St | ~0.2 km (1 min) | Casual work sessions, small meetups |
+Venues researched via OpenStreetMap API (geocoding + nearby-places search centered on 45.5159°N, 122.6822°W, 2,000m radius). All venues are suitable for hosting security workshops, meetups, and community events.
 
 ---
 
-## Pioneer Courthouse Square
+## Top Recommended Venues
 
-- **Coordinates:** 45.5189°N, 122.6793°W
-- **Distance:** Center of downtown Portland
-- **Type:** Public plaza / event space
-- **Why it works:** The "Living Room of Portland" — open-air, high foot traffic, often hosts community events. Great for informal tech meetups and outdoor security awareness events.
-- **Best For:** Casual meetups, outdoor demos, community awareness events
+### 1. Central Library — 801 SW 10th Ave
+- **Distance from downtown center:** ~0.1 km (essentially on-site)
+- **Type:** Public library with event rooms & meeting spaces
+- **Why it's great:** Free or low-cost room reservations; excellent Wi-Fi; located in the heart of downtown; accessible via MAX light rail and bus; quiet study rooms available for breakout sessions
+- **Notes:** The Central Library is a Portland landmark with robust community programming infrastructure
 
-## Portland Art Museum
+### 2. Antoinette Hatfield Hall — 1111 SW Broadway
+- **Distance:** ~0.3 km
+- **Type:** Performing arts / civic building (part of Portland'5 Centers for the Arts)
+- **Why it's great:** Large event-capable spaces; professional AV equipment; downtown location; wheelchair accessible
+- **Notes:** Primarily a theatre but rentable for community events; check availability for workshop-style setups
 
-- **Coordinates:** 45.5165°N, 122.6834°W
-- **Address:** 1219 SW Park Avenue, Portland, OR 97205
-- **Distance:** ~0.5 km, ~1.5 min walk
-- **Type:** Museum / Private Event Venue
-- **Why it works:** Premier venue with private event spaces for workshops and receptions. Strong community presence and landmark building.
-- **Best For:** Sponsor-branded events, elegant workshops, networking mixers
+### 3. Davies Family Research Library — 1200 SW Park Ave
+- **Distance:** ~0.3 km (inside Oregon Historical Society complex)
+- **Type:** Research library with meeting-friendly spaces
+- **Why it's great:** Quiet, focused environment; excellent for small-to-medium group discussions; research-grade resources available
 
-## Portland Center Stage at The Armory
+### 4. Portland Center Stage at The Armory — 128 NW 11th Ave
+- **Distance:** ~0.7 km (Pearl District)
+- **Type:** Theatre / events venue
+- **Why it's great:** Professional-grade AV and staging; accommodates larger audiences; flexible seating configurations; bartending/catering available
 
-- **Coordinates:** 45.5242°N, 122.6817°W
-- **Address:** 128 NW 11th Avenue, The Brewery Blocks, Pearl District
-- **Distance:** ~1 km, ~3 min walk
-- **Type:** Theatre / Event Venue
-- **Why it works:** Professional-grade event space with flexible staging and excellent AV infrastructure for security demos.
-- **Best For:** Larger workshops, demo nights, keynote presentations
+### 5. YWCA — 1111 SW 10th Ave
+- **Distance:** ~0.3 km
+- **Type:** Community organization / civic building
+- **Why it's great:** Mission-aligned with community-building; meeting rooms available; inclusive, welcoming atmosphere for diverse tech audiences
 
-## Revolution Hall
+### 6. Portland State University — 1825 SW Broadway
+- **Distance:** ~0.7 km (University District)
+- **Type:** University with event venues and lecture halls
+- **Why it's great:** Large capacity rooms; academic credibility; often available for community events; strong WiFi; student volunteers may be available
+- **Notes:** Check PSU's community engagement office for room reservations
 
-- **Coordinates:** 45.5191°N, 122.6521°W
-- **Address:** 1300 SE Stark Street, Central Eastside, Buckman
-- **Distance:** ~2.4 km, ~7 min walk
-- **Type:** Events Venue
-- **Why it works:** Popular community venue with multiple rooms and flexible layout. Strong local community following for regular meetups.
-- **Best For:** Regular community meetups, talks, networking events
+### 7. Portland Art Museum — 1219 SW Park Ave
+- **Distance:** ~0.3 km
+- **Type:** Museum / event venue
+- **Why it's great:** Iconic downtown location; event spaces available for community programming; lectures and talks are part of their public program
 
-## West End Theater
+### 8. Pacific Northwest College of Art — 511 NW Broadway
+- **Distance:** ~0.9 km (Pearl District)
+- **Type:** Art college with gallery/event spaces
+- **Why it's great:** Creative atmosphere for security workshops; gallery spaces for informal talks; close to downtown
 
-- **Coordinates:** 45.5192°N, 122.6855°W
-- **Address:** 1220 SW Taylor Street, Downtown
-- **Distance:** ~0.3 km, ~1 min walk
-- **Type:** Community Theatre
-- **Why it works:** Intimate downtown theatre space. Small capacity ideal for hands-on workshops and interactive sessions.
-- **Best For:** Hands-on security workshops, film screenings, small panels
+### 9. Revolution Hall — 1300 SE Stark St (Buckman)
+- **Distance:** ~1.8 km
+- **Type:** All-ages music & events venue
+- **Why it's great:** Popular community space for tech meetups; capacity for 750+; full bar/kitchen; affordable rental; great for after-workshop socials
+- **Notes:** Very popular with Portland's tech and security community; book well in advance
 
-## Portland State University
+### 10. KEX Portland — 100 NE MLK Jr Blvd
+- **Distance:** ~1.5 km
+- **Type:** Hostel / hotel with event spaces
+- **Why it's great:** Event rooms available for meetups; affordable; modern facilities; good for multi-day events or hackathons
 
-- **Address:** 1825 SW Broadway, Portland, OR 97201
-- **Distance:** ~0.8 km, ~2.5 min walk
-- **Type:** University / Public Venue
-- **Why it works:** Extensive event spaces, auditoriums, and classrooms sometimes available for community and nonprofit use.
-- **Best For:** Larger workshops, hackathons, panel discussions
+### 11. Hyatt Regency Portland — 375 NE Holladay St (Lloyd District)
+- **Distance:** ~2.0 km
+- **Type:** Hotel with conference/event facilities
+- **Why it's great:** Professional conference rooms; full AV support; catering; hotel rooms for out-of-town attendees
+- **Notes:** Premium option for larger, more formal security conferences
 
-## Portland Central Library
-
-- **Address:** 801 SW 10th Avenue, Portland, OR 97205
-- **Distance:** ~1.0 km, ~3 min walk
-- **Type:** Public Library
-- **Why it works:** Free meeting rooms for community events. Central library is a hub of civic life in downtown Portland.
-- **Best For:** Free community workshops, open-source working sessions
-
-## First Unitarian Church
-
-- **Address:** 1211 SW Main Street, Portland, OR 97205
-- **Distance:** ~0.7 km, ~2 min walk
-- **Type:** Community / Place of Worship (often rents)
-- **Why it works:** Historic church frequently hosting civic meetings and community gatherings. Welcoming and adaptable.
-- **Best For:** Inclusive community meetups, panel discussions, film screenings
-
-## Hi-Lo (Hostel)
-
-- **Coordinates:** 45.5201°N, 122.6749°W
-- **Address:** 320 SW Harvey Milk Street, Downtown
-- **Distance:** ~0.2 km, ~1 min walk
-- **Type:** Co-working / Event Spaces
-- **Why it works:** Central downtown location with common areas suitable for casual work sessions and small meetups.
-- **Best For:** Casual work sessions, small daily standups, informal gatherings
+### 12. Oregon Convention Center — 777 NE MLK Jr Blvd
+- **Distance:** ~2.0 km
+- **Type:** Major conference convention center
+- **Why it's great:** Largest capacity (10,000+); professional event infrastructure; ideal for annual security conferences
+- **Notes:** Overkill for small meetups; perfect for large-scale community events
 
 ---
 
-## Tips for Event Organizers
+## Venues to Avoid for This Initiative
 
-1. **Book early** — Popular venues fill up quickly
-2. **Leverage free options** — The Library and PCC offer the best cost-effectiveness
-3. **Consider transit access** — All venues above are near MAX lines or major bus routes
-4. **Accessibility matters** — Confirm specific needs when booking
-5. **Food and beverage** — Nearby restaurants (Papa Haydn, Henry Higgins Bagels) on NW 23rd Ave are great for post-event networking
+- **Portland Expo Center** — Too far north (N. Kenton, ~6 km from downtown)
+- **Soho House Portland** — Private members-only club; not suitable for open community events
+- **511 Building** — Office building; not an event venue
 
 ---
 
-*Last updated: July 2026 · Data sourced from OpenStreetMap geocoding and walking-distance routing*
+## Recommendations by Event Size
+
+| Group Size | Recommended Venue |
+|-----------|-------------------|
+| 10–25 | Central Library meeting rooms, YWCA, Davies Family Library |
+| 25–75 | Portland Center Stage (small setup), Portland Art Museum lecture hall, PSU lecture halls |
+| 75–300 | Revolution Hall, KEX Portland, Antoinette Hatfield Hall |
+| 300+ | Oregon Convention Center, Hyatt Regency Portland |
+
+---
+
+*Last updated: July 2026 via OpenStreetMap API*
