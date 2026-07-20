@@ -14,58 +14,60 @@ Clinical trials operate under some of the world's strictest data-protection regi
 
 | NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
 |--------|-------|---------|--------|----------------------|
-| **NCT07344116** | Establishment of a Hepatobiliary and Pancreatic Tumor Biobank | Zhejiang University School of Medicine | NOT_YET_RECRUITING | **Coded data storage** — All samples and data coded and stored per ethical and legal requirements to protect participants' privacy; long-term research resource with privacy by design |
-| **NCT07360366** | Interprofessional Collaboration in the Cardiac ICU: An Action-Research Training Project | University Hospital of Parma | NOT_YET_RECRUITING | **Pseudo-anonymization with restricted access** — Privacy strictly maintained through pseudo-anonymization; data access restricted to the research team |
-| **NCT05170321** | Analysis of Influencing Factors and Construction of Prediction Models of Artificial Joint Replacement in China | Xiangya Hospital, Central South University | UNKNOWN | **Confidentiality principle & IRB approval** — Data analysis conformed to the principle of confidentiality; won't reveal patient privacy; authorized by HQMS Committee Board and institutional IRB with waiver of informed consent |
-| **NCT07125625** | Randomized Double Blind Placebo Controlled Trial on a Probiotic Mixture in Pediatric IBS | University of Bari | NOT_YET_RECRUITING | **Confidential and secure per privacy laws** — All personal data and medical information treated confidentially and securely in accordance with privacy laws; European and Italian regulations for children |
-| **NCT07564544** | AI-Based Clinical Orientation Program for Nursing Students | Selcuk University | NOT_YET_RECRUITING | **Ethics committee approval & informed consent** — Ethical committee approval obtained; informed consent collected after explaining study objectives; keys to privacy in research |
+| **NCT04420858** | Effect of Video Education on Patients' Knowledge and Attitudes of Privacy in Prenatal Genetics | Women and Infants Hospital of Rhode Island | COMPLETED | **De-identified data sharing & consent** — Studies how educational interventions change patient attitudes toward sharing de-identified genetic data for non-clinical research; uses a consent-aware survey design |
+| **NCT07383675** | EHR-Based Risk Factors With Prediction Models for Tinnitus Subtypes | Shanghai Jiao Tong University School of Medicine | COMPLETED | **De-identification & privacy safeguards** — Uses de-identified EHR data with direct identifiers removed; privacy safeguards implemented per institutional policies and applicable regulations |
+| **NCT07709091** | Digital Health Data Security and Management Awareness Training | Istanbul Arel University | COMPLETED | **Structured privacy training & awareness** — RCT testing an online awareness training on digital health data security, data protection, confidentiality, and responsible data management for nursing students |
+| **NCT04911998** | Prospective Non-Interventional Study on Targeted Therapy (TavieSkin App) | Pierre Fabre Medicament | COMPLETED | **E-consent & anonymized data collection** — Mobile health app collects anonymized patient data via e-consent; patients provide e-signature after reviewing detailed data-privacy information letter |
+| **NCT01069887** | HEMA E-CHART Registry (Febrile Events in Hematopoietic Transplant Patients) | Catholic University of the Sacred Heart | COMPLETED | **Electronic records with access control & privacy compliance** — Real-time electronic case record with user ID/password access control; data handled per Italian privacy laws; written informed consent obtained from all patients |
 
 ---
 
 ## Detailed Study Findings & Web-Security Adaptations
 
-### NCT07344116 — Hepatobiliary and Pancreatic Tumor Biobank
-- **Sponsor:** Zhejiang University School of Medicine
-- **Design:** Biobank collecting blood, tissue, bile, and body fluids with clinical data; no experimental treatment or additional invasive procedures
+### NCT04420858 — Video Education on Privacy in Prenatal Genetics
+- **Sponsor:** Women and Infants Hospital of Rhode Island
+- **Design:** Randomized controlled educational intervention (162 participants); control vs. enhanced education on GINA and genetic privacy; survey-based outcomes measured on Likert scales
 - **Key Privacy Practices:**
-  - **Coded data storage** — All samples and data coded and stored per ethical and legal requirements
-  - **Privacy by design** — Purpose-built as a long-term research resource with privacy protections
-- **Adaptation for Web Security:** Apply data coding/pseudonymization to user data at the point of collection; design systems with privacy-by-design principles from the start, not as an afterthought; separate identifiable data from research/analytics data with strict access boundaries
+  - **De-identified data sharing** — Participants assessed on their knowledge of and attitudes toward broad sharing of de-identified genetic data
+  - **Consent-aware design** — Participants reviewed educational materials then completed a survey on data-sharing attitudes; informed participation model
+  - **Granular consent categories** — Separate assessments for data retention, use, and broad sharing
+- **Adaptation for Web Security:** Apply granular consent categories to web data collection (separate opt-ins for analytics, sharing, retention); use educational/transparent prompts before data collection; measure user understanding with pre/post surveys to validate comprehension
 
-### NCT07360366 — Interprofessional Collaboration in CICU
-- **Sponsor:** University Hospital of Parma
-- **Design:** Scenario-based training program for physicians, nurses, healthcare assistants using Moodle-based simulations; 24-month project with 53 total participants
+### NCT07383675 — EHR-Based Risk Factors with Privacy Safeguards
+- **Sponsor:** Shanghai Jiao Tong University School of Medicine
+- **Design:** Multicenter cross-sectional observational study (3,345 participants) using de-identified EHR data from three hospitals in China
 - **Key Privacy Practices:**
-  - **Pseudo-anonymization** — Privacy strictly maintained through pseudo-anonymization, not just anonymization
-  - **Restricted access** — Data access restricted to the research team only
-- **Adaptation for Web Security:** Implement pseudo-anonymization for community data (codes replace identifiers); enforce strict role-based access controls limiting data access to essential personnel only; audit access logs regularly
+  - **De-identification** — All extracted data de-identified with direct identifiers removed
+  - **Privacy safeguards per regulation** — Implemented in accordance with institutional policies and applicable regulations
+  - **No sample retention** — No biological samples collected; purely observational
+- **Adaptation for Web Security:** Implement de-identification at the ingestion layer — strip PII before analytics processing; apply regulatory compliance (GDPR, CCPA) as a baseline requirement; design systems that never store raw PII beyond what's strictly necessary
 
-### NCT05170321 — Joint Replacement Prediction Models in China
-- **Sponsor:** Xiangya Hospital, Central South University
-- **Design:** Analysis of 230M+ standardized inpatient discharge records across 31 provincial regions using HQMS database; includes knee/hip/shoulder/ankle/elbow arthroplasty
+### NCT07709091 — Digital Health Data Security and Management Awareness Training
+- **Sponsor:** Istanbul Arel University
+- **Design:** Two-arm RCT (110 participants) testing an online awareness training on digital health data security; pre/post measurement with validated scales
 - **Key Privacy Practices:**
-  - **Confidentiality principle** — Data analysis conformed to the principle of confidentiality; will not reveal patient privacy
-  - **IRB approval with waiver of informed consent** — Authorized by HQMS Committee Board and institutional IRB
-  - **No conflict of interest** — Applies to principles of ethics, harmlessness, and fairness
-- **Adaptation for Web Security:** Adopt the "principle of confidentiality" as a core design constraint; ensure aggregated/analytics data cannot be reverse-engineered to leak PII; document IRB/ethics approvals and audit trails; define and communicate data use boundaries clearly to users
+  - **Structured awareness training** — Covers protection and confidentiality of personal health data, cybersecurity risks, password security, secure storage and sharing, data privacy, and ethical responsibilities
+  - **Validated assessment** — 32-item Digital Data Security Awareness Scale and 20-item Data Management in the Digital Health Environment Scale
+  - **Self-administered online consent** — Participants voluntarily agreed and provided electronic informed consent
+- **Adaptation for Web Security:** Build mandatory privacy-awareness onboarding for all team members; use validated security-awareness training programs; measure training effectiveness with pre/post assessments; integrate data-privacy education into developer onboarding
 
-### NCT07125625 — Probiotic Mixture for Pediatric IBS
-- **Sponsor:** University of Bari
-- **Design:** Randomized, double-blind, placebo-controlled trial; 14-week study with 2-week run-in, 8-week treatment, 4-week follow-up; children aged 4-18 with IBS
+### NCT04911998 — TavieSkin Mobile Health App (E-Consent & Anonymization)
+- **Sponsor:** Pierre Fabre Medicament
+- **Design:** Prospective longitudinal survey across 7 EU countries (400+ participants) using a mobile app to collect anonymized health and satisfaction data
 - **Key Privacy Practices:**
-  - **Confidential and secure** — All personal data and medical information treated confidentially and securely in accordance with privacy laws
-  - **European/Italian regulations for children** — Additional protections for minor participants
-  - **Informed consent with voluntary participation** — Families can withdraw at any time without affecting medical care
-- **Adaptation for Web Security:** Treat all user data as confidential and secure by default; apply enhanced protections for sensitive data categories (health, financial, etc.); ensure users can withdraw their data as easily as they consented; implement clear data deletion workflows
+  - **E-consent with information letter** — Detailed privacy and data-use information displayed before e-signature; consent collected exclusively within the app
+  - **Anonymized data** — Only anonymized data on health status, QoL, and satisfaction collected; no physician involvement in data collection
+  - **Voluntary withdrawal** — Patients can discontinue at any time without affecting medical care
+- **Adaptation for Web Security:** Implement in-app e-consent flows with clear, plain-language privacy notices; anonymize data at the point of collection before any server-side processing; make data withdrawal as easy as data submission; keep data collection separate from operational care/communication
 
-### NCT07564544 — AI-Based Clinical Orientation Program
-- **Sponsor:** Selcuk University
-- **Design:** Experimental study with 186 nursing students (90 intervention, 45 control); pre-test/post-test design; AI-based clinical orientation program
+### NCT01069887 — HEMA E-CHART Registry (Access Control & Privacy Compliance)
+- **Sponsor:** Catholic University of the Sacred Heart
+- **Design:** Multicentre prospective registry for monitoring invasive fungal infections; electronic case record with real-time updates
 - **Key Privacy Practices:**
-  - **Ethical committee approval** — Obtained before study begins
-  - **Informed consent** — Collected from all participants after explaining objectives
-  - **Data protection integration** — Privacy considerations built into study design from the outset
-- **Adaptation for Web Security:** Obtain explicit consent before collecting user data; integrate privacy considerations into product development from the start (not retroactively); conduct privacy impact assessments alongside security assessments; evaluate effectiveness with pre/post measurements
+  - **User ID/password access control** — Data stored on a site with credential-based access control; each user's centre auto-identified
+  - **Italian privacy law compliance** — Data handled and stored in full compliance with Italian privacy laws
+  - **Written informed consent** — Obtained from each patient; voluntary participation with right to withdraw
+- **Adaptation for Web Security:** Implement credential-based access control with centre/tenant isolation; audit access logs for anomalies; ensure compliance with relevant regulations (SOC 2, ISO 27001, CCPA); obtain explicit consent before collecting any user data; enforce voluntary participation
 
 ---
 
@@ -73,11 +75,11 @@ Clinical trials operate under some of the world's strictest data-protection regi
 
 | # | Practice | Clinical-Trial Origin | Web-Security Adaptation |
 |---|----------|----------------------|------------------------|
-| 1 | **Coded/pseudonymized data storage** | NCT07344116 — All data coded per ethical/legal requirements | **Apply pseudonymization at the point of collection** — separate identifiers from analytics data; use codes instead of PII in all internal datasets |
-| 2 | **Pseudo-anonymization + restricted access** | NCT07360366 — Pseudo-anonymization; data access restricted to the research team | **Enforce role-based access with pseudonyms** — only essential personnel see identifiers; audit access logs for anomalies |
-| 3 | **Confidentiality as a design constraint** | NCT05170321 — Principle of confidentiality; IRB approval; no conflict of interest | **Adopt confidentiality by design** — ensure aggregated data can't be reverse-engineered; document ethics approvals and audit trails |
-| 4 | **Secure & confidential per privacy laws** | NCT07125625 — Confidential and secure per privacy laws; European regulations | **Treat user data as confidential by default** — secure storage, encrypted transit, clear deletion workflows; enhanced protections for sensitive categories |
-| 5 | **Informed consent & ethical approval** | NCT07564544 — Ethics committee approval; informed consent after explaining objectives | **Obtain explicit consent before data collection** — integrate privacy into the development lifecycle; conduct privacy impact assessments |
+| 1 | **De-identification at source** | NCT07383675 — Direct identifiers removed from EHR data before analysis | **Apply de-identification at the ingestion layer** — strip PII before analytics; only store raw PII where absolutely necessary |
+| 2 | **Granular consent categories** | NCT04420858 — Separate assessments for data retention, use, and sharing | **Separate opt-ins for analytics, sharing, and retention** in web consent banners; never bundle consent |
+| 3 | **Structured privacy awareness training** | NCT07709091 — Validated 32+20 item scales; mandatory for all nursing students | **Mandatory privacy-awareness training for all team members**; measure effectiveness; integrate into onboarding |
+| 4 | **E-consent with plain-language privacy notices** | NCT04911998 — In-app information letter before e-signature | **In-app consent flows with clear privacy notices**; make consent context-specific, not buried in terms-of-service |
+| 5 | **Credential-based access control + audit** | NCT01069887 — User ID/password access; per-centre isolation | **Implement RBAC with per-tenant credential isolation**; audit access logs regularly |
 
 ---
 
@@ -119,3 +121,8 @@ We welcome contributions from the web security community. Please open an issue o
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Links
+
+- **GitHub:** https://github.com/zhub9006/web-security-community-toolkit
+- **Clone:** `git clone https://github.com/zhub9006/web-security-community-toolkit.git`
