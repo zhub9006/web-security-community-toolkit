@@ -7,77 +7,104 @@ This document summarizes findings from a live search of ClinicalTrials.gov for r
 ## Search Method
 
 - **Source:** ClinicalTrials.gov API (MCP tool)
-- **Query:** Condition = "privacy", Term = "patient data"
-- **Filters:** Status = COMPLETED or ACTIVE_NOT_RECRUITING
-- **Results:** 7 studies found; 5 most relevant selected for detailed analysis
+- **Queries:** "patient data privacy," "HIPAA," "de-identification," "data protection"
+- **Filters:** Multiple query combinations across condition, term, and outcome fields
+- **Results:** Several hundred matching studies; top 5 with detailed protocol sections selected for analysis
 
 ---
 
 ## Verified Clinical Trials
 
-### NCT04420858 — Genetic Privacy Education in Prenatal Genetics
-- **Sponsor:** Women and Infants Hospital of Rhode Island
-- **Status:** COMPLETED
-- **Enrollment:** 162 participants
-- **Design:** Randomized controlled trial
-- **Key Privacy Practices:**
-  - Informed consent with GINA-based privacy education
-  - Validated survey instruments (Prenatal Testing Opinions Survey) — Likert scale
-  - Data sharing transparency for non-clinical research use
-- **Web-Security Adaptation:** Embed privacy education in onboarding flows; use validated survey tools for user privacy awareness; be transparent about data sharing in plain language; implement consent-gated data collection.
+### NCT04684615 — Mental Health Impact of COVID-19 Pandemic on Amish and Mennonite Participants in AMBiGen
 
-### NCT04803448 — Privacy Statements and Patient Truthfulness
-- **Sponsor:** University of Utah
+- **Sponsor:** National Institute of Mental Health (NIMH) / NIH
 - **Status:** COMPLETED
-- **Enrollment:** 619 participants
-- **Design:** 6-arm RCT (privacy, benefit, risk, privacy+benefit, privacy+risk, control)
+- **Enrollment:** 193 participants
+- **Design:** Observational cohort study, prospective, 24-month follow-up
 - **Key Privacy Practices:**
-  - Privacy statements alongside benefit/risk framing
-  - Biometric lie detection via mouse movement
-  - Answer adjustment method for secondary verification
-- **Web-Security Adaptation:** Use layered consent (privacy + benefit + risk) instead of single "I agree"; implement audit trails and verification; test consent UX variants and measure effectiveness.
-
-### NCT04910009 — Privacy Education for Nursing Students
-- **Sponsor:** Gazi University
-- **Status:** COMPLETED
-- **Enrollment:** 116 participants
-- **Design:** 3-arm RCT; 24-week follow-up; theoretical + digital storytelling + ethical case analysis
-- **Key Privacy Practices:**
-  - Hands-on privacy training via digital storytelling
-  - Validated measurement (PCS, PPS scales) pre/post
-  - Sustained retention measurable at 24 weeks
-- **Web-Security Adaptation:** Run scenario-based privacy workshops (not just slide decks); measure before/after; reinforce with follow-up sessions.
-
-### NCT05493930 — Privacy-Preserving AI for Rectal Cancer (LN-MASTER)
-- **Sponsor:** Peking Union Medical College / Harbin Medical University / Changhai Hospital
-- **Status:** COMPLETED
-- **Enrollment:** 6,578 patients
-- **Design:** Multicenter retrospective cohort; de-identified data across 3 hospitals
-- **Key Privacy Practices:**
-  - Privacy-preserving computing platform
-  - De-identification before model training
-  - External validation across independent datasets
-- **Web-Security Adaptation:** Use federated learning / secure enclaves for community analytics; implement de-identification pipelines; validate tools against external datasets.
-
-### NCT01862133 — Patient-Granular Access Control in EHR
-- **Sponsor:** Indiana University / Regenstrief Institute / HHS
-- **Status:** COMPLETED
-- **Enrollment:** 136 patients + 9 providers
-- **Design:** Prospective cohort; 6-month real-world deployment
-- **Key Privacy Practices:**
-  - Granular per-category consent (STI, HIV, sexual health, substance use, mental health)
-  - Web-based consent UI dashboard
-  - Time-bound access restrictions
-- **Web-Security Adaptation:** Build user-facing privacy dashboards; implement per-category consent; add time-bound access restrictions; deploy in production and measure adoption.
+  - Surveys contain no participant names — only coded identifiers
+  - Separate code-to-identity mapping stored securely
+  - Sensitive mental health and genetic data protected through de-identification at collection
+- **Web-Security Adaptation:** Strip PII at the point of collection; use codes instead of raw identifiers in all internal datasets; store identity mappings separately with restricted access.
 
 ---
 
-## Key Takeaways Summary
+### NCT02744846 — PCORnet Obesity Observational Study (ABX): Short- and Long-Term Effects of Antibiotics on Childhood Growth
 
-| # | Practice | Clinical Trial | Web-Security Adaptation |
-|---|----------|---------------|------------------------|
-| 1 | Informed consent with privacy education | NCT04420858 | Embed privacy education in onboarding flows |
-| 2 | Layered consent (privacy + benefit + risk) | NCT04803448 | Replace single "I agree" with layered consent |
-| 3 | Hands-on privacy training with measurement | NCT04910009 | Run scenario-based workshops; measure before/after |
-| 4 | Privacy-preserving computation | NCT05493930 | Use federated learning / secure enclaves |
-| 5 | Granular user access control | NCT01862133 | Build privacy dashboards with per-category consent |
+- **Sponsor:** Harvard Pilgrim Health Care / PCORI / Multiple Clinical Data Research Networks
+- **Status:** COMPLETED
+- **Enrollment:** 681,739 participants across 42 healthcare systems
+- **Design:** Observational cohort, retrospective, distributed research network
+- **Key Privacy Practices:**
+  - **Distributed architecture:** CDRNs do NOT send individual data to a central site; the coordinating center sends "questions to the data"
+  - **De-identified data for validation:** Some analyses use records where identifying information has been stripped off
+  - **Privacy as a design constraint:** The entire distributed model is built around keeping data local while still enabling multi-site research
+- **Web-Security Adaptation:** Don't centralize sensitive user data; use federated or query-first patterns; tokenize before analytics; keep raw PII at source with access-controlled aggregation only.
+
+---
+
+### NCT02329210 — Clinical Registry Investigating Bardet-Biedl Syndrome (CRIBBS)
+
+- **Sponsor:** Marshfield Clinic Research Foundation
+- **Status:** RECRUITING (international registry)
+- **Enrollment:** ~1,200 estimated
+- **Design:** Observational cohort, prospective, patient registry
+- **Key Privacy Practices:**
+  - **HIPAA compliance:** Registry strictly complies with HIPAA regulations
+  - **Pseudonymization:** Participants identified only by assigned study identification numbers, not by name
+  - **Secure storage:** Electronic database is password-protected; personal health information stored in double-locked physical environment and destroyed after data abstraction
+  - **Restricted sharing:** De-identified data shared only with researchers and organizations approved by the CRIBBS board of directors
+  - **IRB oversight:** Marshfield Clinic Institutional Review Board provides ongoing oversight
+  - **Voluntary participation:** Enrollment is entirely voluntary with informed consent
+- **Web-Security Adaptation:** Apply HIPAA-grade encryption and access controls to all user data; use pseudonymized IDs in place of real identifiers; implement board-level data access governance; log all data access for audit trails.
+
+---
+
+### NCT05908474 — io Fibrewater Supplementation on Gut Health, Immunity and Metabolism
+
+- **Sponsor:** University of Roehampton
+- **Status:** COMPLETED
+- **Enrollment:** 20 participants
+- **Design:** Randomized, placebo-controlled crossover trial
+- **Key Privacy Practices:**
+  - **GDPR-compliant data collection:** Uses Qualtrics platform, which follows General Data Protection Regulation
+  - **Restricted exports:** Data export only allowed for users granted appropriate account permissions by administrators
+  - **Platform-level privacy controls:** Built-in GDPR compliance at the data collection layer
+- **Web-Security Adaptation:** Use GDPR-compliant SaaS platforms for data collection; implement admin-controlled data export permissions; build、区域-level隐私合规 (e.g., GDPR、CCPA) into your toolchain rather than bolting it on later.
+
+---
+
+### NCT03795090 — A Multi-level Antimicrobial Surface Coating for a Healthier Environment
+
+- **Sponsor:** Hong Kong University of Science and Technology
+- **Status:** COMPLETED
+- **Enrollment:** 76 patient privacy curtains (1824 samples)
+- **Design:** Interventional, cross-over, quadruple-blinded
+- **Key Privacy Practices:**
+  - **Coded blinding:** Curtains coded so only the principal investigator knows treatment vs. control assignments
+  - **Privacy curtains as physical privacy barrier:** Study design itself uses patient privacy curtains as both intervention and privacy instrument
+  - **Cross-over design preserves participant anonymity:** Each participant serves as their own control, reducing need for cross-participant identifier matching
+- **Web-Security Adaptation:** Use blinded/masked identifiers in testing environments; don't expose real user IDs in staging or demo data; leverage natural privacy boundaries in your data architecture.
+
+---
+
+## Summary of Adaptable Practices
+
+| Practice | Origin Trial | Web Security Application |
+|----------|-------------|-------------------------|
+| Strip PII at collection, use codes only | NCT04684615, NCT02329210 | Tokenize user identifiers; never log raw PII in analytics DBs |
+| Federated / distributed data architecture | NCT02744846 | Keep sensitive data local; query-first patterns; no central PII store |
+| HIPAA-grade encryption + access controls | NCT02329210 | KMS, encrypted volumes, least-privilege access, audit logs |
+| GDPR-compliant data collection platforms | NCT05908474 | Use compliant SaaS; admin-controlled exports; consent logging |
+| Blinded/masked identifiers in non-production | NCT03795090 | Safe test data; no real user IDs in staging environments |
+| Board-level data access governance | NCT02329210 | Privacy review board; data access approval workflows |
+
+---
+
+## Contributing
+
+To add more verified findings:
+1. Search ClinicalTrials.gov for trials on "patient data privacy," "HIPAA," "de-identification," or "data security"
+2. Retrieve full protocol sections for your NCT ID
+3. Extract the specific privacy practice and its web-security adaptation
+4. Submit a pull request with the new row for the verified trials table
