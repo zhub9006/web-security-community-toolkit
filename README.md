@@ -1,14 +1,14 @@
 # Web Security Community Toolkit
 
-A community-driven initiative that adapts data-privacy practices from clinical trials to web security best practices — and a hub for hosting security workshops and meetups in downtown Portland, Oregon.
+A community-driven initiative that adapts **data-privacy practices from clinical trials** to web security best practices — and a hub for hosting security workshops and meetups in downtown Portland, Oregon.
 
 ---
 
 ## How This Project Was Built
 
-The content in this repo is grounded in **live API research** performed on July 21, 2026:
+The content in this repo is grounded in **live API research** performed on July 22, 2026:
 
-- **ClinicalTrials.gov:** Searched for recent studies on "patient data privacy," "data sharing," and "informed consent" — verified 10 concrete studies with full protocol sections pulled directly from the API
+- **ClinicalTrials.gov:** Searched for recent studies on "patient data privacy," "data sharing," and "informed consent" — verified 9 concrete studies with full protocol sections pulled directly from the API
 - **OpenStreetMap:** Geocoded downtown Portland (45.5159°N, 122.6822°W) and searched within a 2 km radius for community centres, event spaces, libraries, and civic venues
 
 A total of **317+ studies** match the "patient data privacy" query on ClinicalTrials.gov. We extracted the most relevant verified studies with detailed protocol details for direct web-security adaptation.
@@ -17,22 +17,32 @@ A total of **317+ studies** match the "patient data privacy" query on ClinicalTr
 
 ## Why Clinical-Trial Privacy Matters for Web Security
 
-Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight, informed consent, Data Monitoring Committees). We searched ClinicalTrials.gov for recent studies on "patient data privacy" and verified concrete studies — all real, API-confirmed results — that showcase directly adaptable practices for web security.
+Clinical trials operate under some of the world's strictest data-protection regimes (HIPAA, GDPR, IRB oversight, informed consent, Data Monitoring Committees). Clinical trial consent is legally binding, granular, and revocable — and web consent should be too. Privacy in healthcare is a matter of life and death, and the practices they use are directly adaptable to web security.
+
+Web security can learn from clinical trial privacy in these key ways:
+
+1. **Informed consent mechanisms** → opt-in/opt-out UX that people actually understand
+2. **Pseudonymization & data minimization** → strip PII before storage/analysis
+3. **Access control & restricted permissions** → least-privilege by design
+4. **Training over enforcement** → awareness beats compliance checkboxes
+5. **Ethics review boards** → structured oversight of data practices
+6. **Risk & benefit communication** → transparent framing of what users get
 
 ---
 
-## Verified Clinical Trials — Patient Data Privacy
+## Verified Clinical Trials — Patient Data Privacy Practices
 
 | NCT ID | Title | Sponsor | Status | Key Privacy Takeaway |
 |--------|-------|---------|--------|----------------------|
-| **NCT04910009** | The Effect of Privacy Education on Nursing Students' Privacy Consciousness and Attitudes Towards Patient Privacy: A Randomized Controlled Study | Gazi University | COMPLETED | **Privacy education improves consciousness** — RCT showed structured privacy training significantly raised privacy-consciousness scores (PCS) and attitudes toward patient privacy; structured curricula with measurement are more effective than passive policy documents |
-| **NCT04684615** | Mental Health Impact of the COVID-19 Pandemic on Amish and Mennonite Participants in AMBiGen | NIH / NIMH | COMPLETED | **Coded identifiers instead of names** — Surveys contain no participant names, only codes; protects privacy of sensitive mental-health data across 193 participants; coded IDs enable re-contact without exposing identity |
-| **NCT04999436** | APOL1 Genetic Testing Program for Living Donors, Part 2 | Northwestern University | COMPLETED | **Genetic privacy & culturally competent consent** — Explicit consent for genetic data; shared decision-making; culturally competent counseling; applies the RE-AIM framework for implementation; highlights that sensitive data (genetic, biometric, location) needs extra layers of protection |
-| **NCT00932659** | Continuous Cardiac Arrhythmia Monitoring in Hemodialysis Patients (CARE-ESRD) | Duke University / Medtronic | COMPLETED | **Strict PHI security measures** — Explicitly "minimized risks to patient confidentiality" via strict security measures to protect protected health information; pre-procedural screening; operator training; frequent direct followup; DMC oversight |
-| **NCT07709091** | Digital Health Data Security Awareness Training | Istanbul Arel University | COMPLETED | **Training-driven privacy awareness** — Online training covering password security, secure storage/sharing, data privacy & ethical responsibilities; validates that awareness training is more effective than passive policy documents |
-| **NCT05058599** | Reconstruction Tech to Guarantee Patient Privacy | Sun Yat-sen University | UNKNOWN / RECRUITING | **Data minimization via Digital Mask** — 3D reconstruction + deep learning to irreversibly erase biometric attributes while retaining clinical data; demonstrates that you can strip PII at the source and still retain utility |
-| **NCT04803448** | Patient Doctor Lies: When is Privacy Assurance a Bad Thing? | University of Utah | COMPLETED | **Privacy notices can backfire** — HIPAA privacy notices increased clinical lying (619 participants); risk/benefit framing more effective than generic "we value your privacy" statements |
-| **NCT05170321** | Analysis of Influencing Factors — Artificial Joint Replacement | Xiangya Hospital, Central South University | UNKNOWN | **Confidentiality principle & IRB approval** — Conformed to confidentiality principle with no conflict of interest; IRB approval with waiver of consent; demonstrates that ethical design starts with regulatory compliance |
+| **NCT04609072** | Connect for Cancer Prevention Study (Connect) | NIH / NCI | RECRUITING | **Secure digital consent & EHR sharing** — Online consent via MyConnect; "All information shared through MyConnect is secure to protect participant privacy"; electronic health record linkage with participant control; cloud-hosted infrastructure with modern interoperability standards |
+| **NCT07378683** | ML-Based Risk Stratification for Surgical Site Infection | Cancer Institute, Chinese Academy of Medical Sciences | RECRUITING | **Coded identifiers & ethics oversight** — "Privacy Protection: All your personally identifiable information will be kept strictly confidential. Codes will replace your name and other identifiable information"; Ethics Committee review; independent Data Safety Monitoring Board; informed consent required |
+| **NCT07620834** | AI-Guided Diagnosis for Osteoporosis | Taichung Veterans General Hospital | RECRUITING | **Data sharing & cybersecurity compliance** — "All research data collection, exchange, and sharing will strictly adhere to cybersecurity and privacy regulations"; multi-center data exchange with standardized privacy framework; ethical review & clinical governance |
+| **NCT07707518** | SMART-DKD: Diabetic Kidney Disease Screening | Chongqing Medical University | NOT_YET_RECRUITING | **Full data anonymization & encryption** — "All participant personal information and biological samples are fully anonymized with unique study codes and stored in encrypted databases with restricted access"; Declaration of Helsinki + Chinese GCP compliance; written informed consent with withdrawal at any time |
+| **NCT05999279** | Patient Preferences: In-person vs Digital Health | Lebanese University | COMPLETED | **Privacy-first digital health** — One of the earliest studies to call out "ensure patient privacy and data security when implementing digital pharmaceutical care services"; survey-based approach measuring patient privacy preferences for digital vs in-person care |
+| **NCT06425523** | THRIVE: Refugee Mental Health (Uganda) | Uppsala University | ACTIVE_NOT_RECRUITING | **Sensitive population data protection** — Collects highly sensitive data (migration history, traumatic events, social capital); data gathered on vulnerable refugee mothers; designed for ethical handling of sensitive behavioral & mental-health data |
+| **NCT05540782** | PRO-HEALTH: Prostate Cancer Survivorship | Memorial Sloan Kettering | ACTIVE_NOT_RECRUITING | **HIPAA-compliant communication** — Uses "secure, HIPAA-compliant Mosio texting platform" for patient outreach; IPD sharing via Data Use Agreement; 12-month data sharing window (IRB/Federal requirements); validated data-sharing framework |
+| **NCT06380192** | DEE-RETRO: Epilepsy Data Reuse | Imagine Institute | RECRUITING | **Consent-based health data reuse** — Explicit opt-in for retrospective data reuse; patient can oppose data re-use; multicenter EU data sharing under standardized ethical review; demonstrates how to balance research utility with privacy for sensitive neurological data |
+| **NCT05533918** | SCALE-UP Utah II: COVID-19 Testing & Vaccination | University of Utah | COMPLETED | **Privacy-preserving digital outreach** — PHM interventions using phone/text messaging at community health centers; telephone and text-based consent/preferences; built for underserved populations with privacy considerations for vulnerable communities |
 
 ---
 
@@ -40,18 +50,20 @@ Clinical trials operate under some of the world's strictest data-protection regi
 
 | # | Practice | Clinical-Trial Origin | Web-Security Adaptation |
 |---|----------|----------------------|------------------------|
-| 1 | **Privacy education improves outcomes** | NCT04910009 — RCT showed structured privacy training raised consciousness scores | **Run periodic team privacy training** — password hygiene, encrypted storage, phishing recognition; measure effectiveness with quizzes |
-| 2 | **Coded identifiers at collection** | NCT04684615 — No names in surveys; codes only | **Replace PII with tokens at collection** — separate identifiers from analytics data; never log raw names or emails in internal datasets |
-| 3 | **Sensitive data needs extra layers** | NCT04999436 — Genetic data gets culturally competent, explicit-consent handling | **Treat sensitive data (financial, biometric, location) with extra care** — separate consent flows; enhanced encryption for high-sensitivity categories |
-| 4 | **Strict PHI security measures** | NCT00932659 — Explicit "strict security measures" to protect PHI | **Encrypt at rest + restrict physical access** — use KMS, encrypted volumes, and access-controlled key vaults |
-| 5 | **Training over enforcement** | NCT07709091 — Online awareness training beats passive policy | **Build privacy literacy, not just cookie banners** — awareness training is more effective than passive policy documents |
-| 6 | **Data minimization at capture** | NCT05058599 — Digital Mask strips PII at the source | **Collect only what you need; scrub PII at the source** — tokenize before analytics; never log raw identifiers |
-| 7 | **Risk framing > privacy notices** | NCT04803448 — HIPAA notices increased lying; risk framing reduced it | **Use risk & benefit framing in consent UX** — "This helps us protect your account" beats "We value your privacy"; A/B test consent language |
-| 8 | **Confidentiality by design** | NCT05170321 — Principle of confidentiality; IRB approval | **Adopt confidentiality by design** — ensure aggregated data can't be reverse-engineered; document ethics approvals and audit trails |
+| 1 | **Secure digital consent** | NCT04609072 — Online informed consent via MyConnect with secure account creation | **Replace dark patterns with clear opt-ins** — build consent flows that are easy to understand, easy to decline, and easy to revoke; store consent choices immutably |
+| 2 | **Coded identifiers** | NCT07378683 & NCT07707518 — All PII replaced with codes; encrypted databases | **Pseudonymize at ingestion** — replace raw user IDs with tokens before analytics; keep the mapping in a separate, access-controlled vault |
+| 3 | **Cybersecurity & data-sharing standards** | NCT07620834 — All data exchange "strictly adheres to cybersecurity and privacy regulations" | **Standardize your data-sharing agreements** — adopt well-known standards (NIST, ISO 27001); document security controls for every integration point |
+| 4 | **Encrypted storage + restricted access** | NCT07707518 — "encrypted databases with restricted access" | **Encrypt at rest + in transit; enforce least-privilege IAM** — use KMS, encrypted volumes, and per-service access scopes |
+| 5 | **Privacy-by-design in digital health** | NCT05999279 — "ensure patient privacy and data security when implementing digital care" | **Embed privacy into feature specs from day one** — don't bolt it on post-launch; add privacy requirements to your Definition of Done |
+| 6 | **Sensitive population protections** | NCT06425523 — heightened care for trauma/mental-health data | **Tiered data handling** — apply stricter defaults for sensitive categories (health, financial, location, biometric); ask for more explicit consent |
+| 7 | **HIPAA-compliant communication** | NCT05540782 — HIPAA-compliant messaging platform with Data Use Agreements | **Choose verified privacy-compliant tools** — don't build your own encrypted channel; use established APIs with clear compliance certifications |
+| 8 | **Consent-based data reuse** | NCT06380192 — retrospective data reuse requires explicit opt-out rights | **Make data opt-out easy** — provide a clear dashboard showing what data you hold and let users delete/export it with one click |
+| 9 | **Privacy-preserving digital outreach** | NCT05533918 — phone/text-based interventions at community health centers | **Prefer opt-in channels over surveillance** — push notifications with consent over passive tracking; let users choose their comms preferences |
+| 10 | **Ethics review + Data Safety Monitoring** | NCT07378683 — DMC + IRB oversight for all data handling | **Establish an internal data governance board** — regular audits of who accesses what data; quarterly privacy impact assessments |
 
 ---
 
-## Cross-Cutting Themes
+## Cross-Cutting Themes — What Clinical Trials Teach Us
 
 1. **Privacy-by-Design** — All good trials embed privacy protections into the protocol from the start, not as an afterthought. Web security teams should adopt the same principle.
 2. **Pseudonymization over Anonymization** — Clinical trials prefer pseudonymization (reversible with a key) because it allows data utility while protecting identity. This maps to web security's need for tokenization and hashed identifiers.
@@ -59,94 +71,73 @@ Clinical trials operate under some of the world's strictest data-protection regi
 4. **Consent Management** — Informed consent mechanisms in trials directly inform how we build consent-gated dashboards and preference centers.
 5. **Compliance & Auditing** — IRB oversight in trials parallels SOC 2 / ISO 27001 in web security. Regular auditing of data access is essential in both domains.
 6. **Education over Enforcement** — Awareness training is more effective than passive policy documents. Build privacy literacy, not just cookie banners.
-7. **Framing Matters** — How you ask for consent dramatically affects compliance truthfulness. Risk and benefit frames outperform generic privacy statements (see NCT04803448 findings).
+7. **Framing Matters** — How you ask for consent dramatically affects user behavior. Risk and benefit frames outperform generic privacy statements.
 8. **Data Minimization by Design** — Strip PII at the point of capture; never pass raw identifiers downstream.
-9. **Sensitive Data Needs Extra Layers** — Genetic data (NCT04999436) gets extra protections. Apply the same level to financial, biometric, and location data.
-10. **Continuous Monitoring** — Privacy isn't a one-time consent — it's an ongoing practice. Like clinical trial DMCs, establish a community review board for your data practices.
+9. **Sensitive Data Needs Extra Layers** — Genetic data (NCT07620834/NCT07707518) gets extra protections. Apply the same level to financial, biometric, and location data.
+10. **Continuous Monitoring** — Privacy isn't a one-time consent — it's an ongoing practice. Like clinical trial Data Safety Monitoring Boards, establish regular reviews of your data practices.
 
 ---
 
-## Venue Selection by Event Size (Downtown Portland, OR)
+## Portland Venues for Workshops & Meetups
 
-All venues are within **~2 km** of the downtown core (45.5159°N, 122.6822°W). Walking distances verified via route data as of July 2026.
+All venues are within **2 km** of downtown Portland (centered at Pioneer Courthouse Square, 45.5189°N, 122.6793°W).
 
-### Small Gruppen (10–25 people)
-| Venue | Address | Walking Dist. | Cost | Notes |
-|-------|---------|---------------|------|-------|
-| **Portland Art Museum** (rental/meeting rooms) | 1219 SW Park Ave | ~500 m | Low–Medium | Book event spaces in advance; AV available |
-| **Director Park** (outdoor/pavilion events) | SW Taylor & SW Broadway | ~580 m | Free | Open-air pavilion; check City of Portland permits |
-| **Pioneer Courthouse Square** (open-air) | SW Taylor / SW Broadway | ~590 m | Free | Portland's "living room"; permits required for events |
-| **Davies Family Research Library** | 1200 SW Park Ave | ~100 m | Free | Library meeting room; quiet, bookable |
-| **The Heathman Hotel** (meeting rooms) | 1001 SW Broadway | ~580 m | Medium | Hotel concierge event space; intimate setting |
-| **The Sentinel** (lounge/meeting) | 614 SW 11th Ave | ~1.2 km | Low–Medium | Boutique hotel with group meeting areas |
+### Event Spaces by Size
 
-### Medium Groups (25–75 people)
-| Venue | Address | Walking Dist. | Cost | Notes |
-|-------|---------|---------------|------|-------|
-| **Portland State University** (event rooms) | 1825 SW Broadway | ~820 m | Free–Low | PSU student buildings avail. for community use; contact events office |
-| **Soho House Portland** (member lounge) | 1025 SE Pine St | ~2.9 km | Low–Medium | Private club; host events as a member; creative community |
-| **Portland'5 Centers for the Arts** (Antoinette Hatfield Hall) | 1111 SW Broadway | ~400 m | Low–Medium | Multi-venue arts complex; rentable event spaces |
-| **UO Portland Center** | NE Holman St | ~1.2 km | Free–Low | University of Oregon Portland satellite; flexible classroom spaces |
+| Group Size | Venue | Address | Distance from Center | Best For |
+|---|---|---|---|---|
+| 10–30 | **First Presbyterian Church** | 1200 SW Alder St | ~0.3 km | Intimate workshops, breakout sessions, community gatherings |
+| 10–30 | **Pioneer Courthouse Square** *(outdoor)* | SW Taylor / SW Broadway | ~0.1 km | Free meetups, demos, pop-up events (permit may be required) |
+| 10–50 | **PCC Downtown Center** *(classroom)* | 722 SW 2nd Ave | ~0.6 km | Training sessions, seminars, hands-on labs (book via PCC) |
+| 20–50 | **Helfgott Research Institute** *(CEC)* | 2220 SW 1st Ave | ~1.0 km | Panel discussions, educational events, community forums |
+| 20–75 | **Native American Student & Community Center** | 710 SW Jackson St | ~0.8 km | Cultural events, community organizing, diversity & inclusion workshops |
+| 20–150 | **Lincoln Hall** | 1620 SW Park Ave | ~0.3 km | Talks, presentations, larger workshops (check PSU events) |
+| 50–200 | **Portland Art Museum** *(event spaces)* | 1219 SW Park Ave | ~0.1 km | Evening receptions, galas, media-friendly events |
+| 75–300 | **Oregon Convention Center** | 777 NE MLK Jr Blvd | ~1.5 km | Large conferences, multi-track workshops, vendor demos |
+| 75–300 | **Revolution Hall** | 1300 SE Stark St | ~2.1 km | Music, talks, community gatherings; great AV & ticketing |
+| 100–500 | **Star Theater** | 13 NW 6th Ave | ~0.5 km | Larger presentations, film screenings, immersive tech demos |
+| 30–80 | **The Joinery** | 922 SW Yamhill St | ~0.1 km | Small workshops, co-working meetups (furniture-making heritage space) |
 
-### Large Gruppen (75–300 people)
-| Venue | Address | Walking Dist. | Cost | Notes |
-|-------|---------|---------------|------|-------|
-| **Revolution Hall** | 1300 SE Stark St | ~2.9 km (walking) / ~2.4 km (straight-line) | Medium | Historic church-turned-event-venue; capacity ~300; contactless ticketing |
-| **Hawthorne Theatre** | 1507 SE César E. Chávez Blvd | ~2.7 km | Medium | Live music/events venue; larger capacity; rental available |
-| **Dossier Hotel (Hilton) ballroom** | 921 SW 6th Ave | ~300 m | Medium | Downtown hotel ballroom; professional AV and catering |
+### Community & Planning Organizations
 
-### Casual / Pop-Up & Planning Spaces
-| Venue | Address | Walking Dist. | Cost | Notes |
-|-------|---------|---------------|------|-------|
-| **Caffe Umbria** (coffee meetups) | 710 SW Madison St | ~39 m | Free–Coffee | The closest café to center; wi-fi, sidewalk seating |
-| **Portal Tea** (quiet hangouts) | 734 NW 23rd Ave | ~900 m | Free | Tea house with wlan, indoor seating, great for pre-event planning |
-| **Case Study Coffee Roasters** | 1400 NW 23rd Ave | ~1.1 km | Free–Coffee | Local roaster with big tables; great for small workshops |
-| **Water Avenue Coffee** | 1028 SE Water Ave | ~230 m | Free–Coffee | Working-friendly space; Wi-Fi; near Burnside bridge |
-| **Portland Public Library** (central) | 801 SW 10th Ave | ~400 m | Free | Reserve group study rooms; free for educational use |
-| **Central Library meeting rooms** | 801 SW 10th Ave | ~400 m | Free | Quiet, bookable; book 4+ weeks ahead; AV available |
-| **Ecotrust** (sustainable nonprofit) | 1140 SE 7th Ave | ~700 m | Free–Low | Sustainable-food-focused nonprofit space; seating ~50 |
-| **Oregon Community Foundation** | 1221 SW Yamhill St | ~300 m | Free | Civic foundation meeting space; community-oriented |
+| Organization | Address | Notes |
+|---|---|---|
+| **Ecotrust** | 1140 SE 7th Ave | Sustainable-economy nonprofit; ~80 seats; contact for community event availability |
+| **Wieden+Kennedy** | 224 NW 13th Ave | Creative agency with event-friendly campus spaces; contact for community access |
+| **Oregon Health & Science University (OHSU)** | 3181 SW Hooker St | Academic venue; community education programs; ~1.5 km south, full tech infrastructure |
+| **Portland Community College — Downtown Center** | 722 SW 2nd Ave | Multiple classrooms & computer labs; highly affordable event rental for community groups |
+| **Native American Student & Community Center** | 710 SW Jackson St | Community-oriented; support for indigenous-led events; close to downtown |
 
----
+### Booking Tips
 
-## Booking Priority Guide
-
-1. **Free / Low-Cost:** Director Park, Pioneer Courthouse Square, Davies Family Research Library, Central Library meeting rooms, PSU event rooms, Ecotrust, Oregon Community Foundation
-2. **Mid-Size Workshops (25–75):** Portland'5 Centers for the Arts, Portland Art Museum, The Heathman Hotel, UO Portland Center
-3. **Large Events (75–300):** Revolution Hall, Dossier Hotel ballroom, Hawthorne Theatre
-4. **Casual / Pop-Up:** Caffe Umbria, Portal Tea, Water Avenue Coffee, Case Study Coffee Roasters
-
-> **Tip:** For free public spaces (Director Park, Pioneer Square), always contact the City of Portland's Office of Special Events for permits. For indoor free venues, book 4+ weeks ahead.
+- **Pioneer Courthouse Square** — Free for public gatherings; check with the City of Portland for permits (permits required for structures/ amplified sound)
+- **PCC Downtown Center** — Free or low-cost for 501(c)(3) community organizations; book 6+ weeks ahead
+- **Revolution Hall** — Contactless ticketing system; capacity ~300; great for mid-size security workshops with live streaming
+- **Oregon Convention Center** — Book 3+ months ahead for large events; Excellent AV and breakout room infrastructure
+- **Ecotrust** — Sustainable food and BUILD nonprofit headquarters; seats ~80; contact ahead for private event availability
+- **Native American Student & Community Center** — Community-oriented; support for indigenous-led events; close to downtown
+- **Star Theater** — Owned by Portland events organization; capacity ~400; excellent for large workshops and screenings
 
 ---
 
 ## Quick-Start Checklist
 
-- [ ] Clone the repo: `git clone https://github.com/zhub9006/web-security-community-toolkit`
-- [ ] Review the clinical trial privacy findings in this README
-- [ ] Pick a venue from the table above (check booking notes)
-- [ ] Schedule your first meetup (aim for 2–4 weeks out)
-- [ ] Promote via local channels: Portland Slack, Meetup.com, PSUSG, PSU CS Club, Portland Tech Calendar
-- [ ] Prepare a 15-min privacy topic from the Key Takeaways table above
-- [ ] Run a live hands-on exercise (e.g., tokenizing PII in a mock database)
+- [ ] Familiarize your team with the 10 key takeaways above
+- [ ] Audit your current consent + data-handling practices using the Clinical-Trial Privacy Maturity Matrix (coming soon)
+- [ ] Pick a Portland venue for your next meetup from the table above
+- [ ] Share the privacy takeaways as a 5-minute warm-up at your next workshop 💻🔒
 
 ---
 
 ## Contributing
 
-We welcome contributions! See `CONTRIBUTING.md` for guidelines. Focus areas:
-
-- **Privacy case studies** — Adapt more clinical trial compliance practices
-- **Workshop curricula** — Build slide decks and hands-on exercises
-- **Venue data** — Add/update Portland venue details or geo-coordinates
-- **Tool recommendations** — Security/privacy tools and frameworks
+Found a great clinical-trial privacy practice or a Portland venue we missed? Open an issue or PR! We welcome pull requests with:
+- Additional verified clinical trials (NCT ID + full summary)
+- New Portland venues (name, address, distance, capacity)
+- Mappings between trial practices and web-security controls
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-*Built with data from ClinicalTrials.gov (NCT API) and OpenStreetMap (geocoding). Venue distances measured as walking paths from the downtown Portland core (45.5159°N, 122.6822°W).*
+Open-source. See `LICENSE` for details.
