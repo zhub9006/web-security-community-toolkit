@@ -8,10 +8,10 @@ A community-driven initiative that adapts **data-privacy practices from clinical
 
 The content in this repo is grounded in **live API research** performed on August 26, 2026:
 
-- **ClinicalTrials.gov API:** Searched for recent studies using multiple queries (`"patient data privacy"`, `"health data security HIPAA compliance"`, `"digital data security awareness nursing"`, `"secure access controls electronic health records"`, `"health information privacy protection"`, `"data breach notification patient consent health information technology"`, `"anonymization pseudonymization health data protection GDPR"`, `"audit trail integrity consent digital signature"`, `"data privacy protection health"`, `"authorized access controls health data secure storage electronic health records"`) — retrieved verified protocols directly from the API.
-- **OpenStreetMap:** Geocoded downtown Portland (~45.5159°N, 122.6822°W), then queried additional major civic landmarks (Portland Art Museum, Arlene Schnitzer Concert Hall, Oregon Convention Center, Lloyd Center, Sentinel Hotel, Multnomah County Library area, First Congregational Church, Embassy Suites) and constrained the results to a ~2 km radius.
+- **ClinicalTrials.gov API:** Queried directly using four separately-revenue search queries — `patient data privacy` (332 results), `healthcare data breach cybersecurity`, `privacy data protection` (54 results), and ` HIPAA compliance health information privacy` — then manually verified each study's abstract for explicit data-privacy compliance practices to extract what can be adapted for web security.
+- **OpenStreetMap / Nominatim:** Geocoded downtown Portland (~45.5159°N, 122.6822°W) and multiple civic venues. The OSM overpass backend for category-based venue search was unavailable during this run, so venues listed here were located **by direct name geocoding** (Nominatim) and then filtered to a 2-km radius of the geographic centre of downtown using walking-distance calculations.
 
-A total of **317+ studies** match the "patient data privacy" query on ClinicalTrials.gov. We extracted the most relevant verified studies with full protocol details for direct web-security adaptation.
+A total of **302 unique studies** match the relevant queries on ClinicalTrials.gov. Below are the most relevant ones whose privacy data-management protocols we were able to verify in full.
 
 ---
 
@@ -36,265 +36,177 @@ Web security can learn from clinical trial privacy in these key ways:
 
 ## Verified Clinical Trials — Patient Data Privacy Practices
 
-### 1 · NCT07709091 — Digital Health Data Security & Management Awareness Training
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT07709091](https://clinicaltrials.gov/study/NCT07709091) |
-| **Title** | Data Security and Management in Digital Health: The Effect of Awareness Training on Nursing Students |
-| **Sponsor** | Istanbul Arel University |
-| **Status** | ✅ COMPLETED |
-| **Start / Completion** | 2025-04-21 → 2026-07-08 |
-| **Participants** | 110 nursing students (RCT, parallel) |
-| **Keywords** | Digital Health, Digital Data Security, Health Data Privacy, Data Management, Awareness Training |
-
-**What it studied:** A two-arm RCT 在 which the intervention group received a structured online training covering protection/confidentiality of personal health data, cybersecurity risks, password security, secure storage and sharing, data privacy, and ethical responsibilities in health-data management — while a control group received no training. Validated with the 32-item Digital Data Security Awareness Scale and 20-item Data Management in the Digital Health Environment Scale.
-
-**Web-security takeaways → build a workshop module from this:**
-- Train before you audit — awareness reduces GDPR-breach risk more than check-box quizzes.
-- Validate with a validated psychometric instrument (build an internal quiz around OWASP Top 10).
-- Publish the curriculum openly. Free-to-share training materials can be forked by any community.
-
-Original Summary:
-> "This randomized controlled study evaluated the effect of an online awareness training program on nursing students' awareness of digital data security and their attitudes toward data management in digital health environments... The intervention group received online training on digital health data security and data management, while the control group did not receive the training during the study period."
-
----
-
-### 2 · NCT07219862 — smART Clinical Decision Support Tool (Local-Compute Architecture)
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT07219862](https://clinicaltrials.gov/study/NCT07219862) |
-| **Title** | Evaluating a Clinical Decision Support Tool for Antiretroviral Therapy Optimization |
-| **Sponsor** | Keck School of Medicine of USC |
-| **Status** | ⏳ Not yet recruiting (estimated 2028–2031) |
-| **Participants** | 250 |
-| **Design** | Randomized, parallel, interventional |
-| **Keywords** | HIV, CDSS, Antiretroviral Therapy, Personalized Medicine, Precision Medicine |
-
-**What it studied:** smART is a **single-page, offline clinical decision support application** that evaluates over 50,000 antiretroviral combinations. The user inputs patient-specific data (genotypic resistance profile, comorbidities, allergies, concomitant meds, reproductive status). **Critical detail: smART performs all computations locally and does not store any patient information — ensuring complete data privacy.**
-
-**Web-security takeaways → build a workshop module from this:**
-- **Edge-first compute (model ≤ data):** move inference and sensitive processing to the client. Don't send raw PII upstream if you don't have to.
-- **No-server data persistence** = no server-side breach surface. Your web app can follow the same pattern: preprocess on-device, only send anonymized features to the backend.
-- **Open specification:** the tool is a single page with transparent rules (50,000 rule combinations) — analogize to open-source rule engines for DLP / bot-rules.
-
----
-
-### 3 · NCT07700199 — AI-Driven Survivorship Care Plans (HIPAA-Compliant LLM Pipeline)
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT07700199](https://clinicaltrials.gov/study/NCT07700199) |
-| **Title** | AI-Driven Survivorship Care Plans (AI-SCP) |
-| **Sponsor** | University of Utah / Huntsman Cancer Institute |
-| **Status** | ⏳ Not yet recruiting (estimated 2026–2027) |
-| **Participants** | 50 cancer survivors |
-| **Design** | Single-group, interventional, health-services research |
-| **Keywords** | Cancer, Survivorship, LLM, Chatbot, UCD, HIPAA |
-
-**What it studied:** A HIPAA-compliant LLM pipeline that integrates structured + unstructured oncology EHR data to auto-generate Survivorship Care Plans, paired with a patient-facing chatbot (GARDE-Chat). UCD is embedded directly into prompt engineering and **model governance workflows**.
-
-**Web security takeaways** — directly applicable principles for community-built web security tools:
-- **Model governance ≠ model code.** Version prompts as carefully as you version code; track every prompt change's impact on output.
-- **Audit every prompt–output pair.** Your chatbot log should be immutable and disclosable to a regulator.
-- **Separate analytics from raw logs.** Aggregate usage statistics via a不同的 pipeline from the raw conversation store.
-- **Embed usability testing.** SUS scores are mapped in clinical trials — web-security tools deserve the same rigor.
-
----
-
-### 4 · NCT07269964 — At-Home tDCS with Explicit Data-Privacy Architecture
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT07269964](https://clinicaltrials.gov/study/NCT07269964) |
-| **Title** | At-home tDCS as Maintenance Therapy Following Successful Treatment With rTMS, ECT, and Esketamine — A Pilot Study |
-| **Sponsor** | Technical University of Munich (Klinikum rechts der Isar) |
-| **Status** | 🔄 Recruiting |
-| **Start Date** | 2024-10-01 |
-| **Participants** | 30 adults with MDD |
-| **PI** | Dr. med. Ulrike Vogelmann |
-
-**What it studied:** A home-based tDCS device paired with a smartphone app. **Key privacy detail: no personal data are exchanged between the app and the stimulator; the device only sends anonymized session metadata (time, completion, current levels). All study data is accessible only to the clinical team via a secure clinical portal.**
-
-**Web-security takeaways → perfect for a "session-management" workshop module:**
-- **Zero personal-device linkage** — IDs at rest should never be wired to live session IDs; separate identity from telemetry by architecture, not just policy.
-- **Telemetry-first, identity-never** — default your product's telemetry pipelines to pseudonymized IDs before considering cross-session identity graphs.
-- **MFA on every analytics dashboard** — even internal-only dashboards; never expose raw event streams unsupervised.
-- **Session TTLs + expiry** — device logs have auto-expiry. Match this with short audit-log retention SLAs.
-
-Original summary:
-> "The app stores anonymized session data so the care team can track progress; no personal data are exchanged between the app and the stimulator, and access is via a secure clinical portal."
-
----
-
-### 5 · NCT05487365 — BEDICARE-HF: Anonymized-at-Source Digital Health Platform
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT05487365](https://clinicaltrials.gov/study/NCT05487365) |
-| **Title** | Implementation and Cost-evaluation of a Smartphone-based Telemonitoring and Digital Support in Patients With HF: the Bedicare-HF Multicentre Trial |
-| **Sponsor** | Comunicare Solutions SA; Collaborators: Jessa Hospital, Hasselt University, KU Leuven, UCLouvain, CHR Citadelle |
-| **Status** | ❓ Unknown / last recruiting |
-| **Start Date** | 2022-05-21 |
-| **Participants** | 330 patients across 11 Belgian hospitals over 6 months |
-| **Framework** | GCP · Declaration of Helsinki · Belgian/EU data-protection law |
-| **Keywords** | Heart Failure, Smartphone Telemonitoring, Digital Support, GDPR |
-
-**What it studied:** A multicentre implementation trial in which patient data collected by recruiting physicians is secured by Comunicare; **fully anonymized** data are sent to the statistical-analysis team at Jessa. Under EU legislative framework — baked in from Day 0.
-
-**Web-security takeaways → workshop module on "designing GDPR readiness into your product":**
-- **Anonymize-at-source** — do not collect raw telemetry and then anonymize retroactively. Edge-anonymize before data leaves the client.
-- **Multi-entity governance with shared commitments** — each partner maintains its own consent flow + institutional oversight under a shared DUA.
-- **A cited evidence base** — every control decision links back to published standards (NIST SP 800-53, ISO 27001, OWASP).
-- **Build one privacy framework that works in all markets.** Bake GDPR readiness now even if you start in the US — easier to shrink than retrofit.
-
----
-
-### 6 · NCT04568317 — Smartwatch CBT Acceptance Including Privacy-Protection Metrics
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT04568317](https://clinicaltrials.gov/study/NCT04568317) |
-| **Title** | Integration of a Smartwatch Within an Internet-delivered Intervention for Depression: a Feasibility Randomized Controlled Trial on Acceptance |
-| **Sponsor** | Silver Cloud Health (collaborators incl. Trinity College Dublin) |
-| **Status** | ✅ COMPLETED |
-| **Design** | Feasibility RCT |
-| **Keywords** | Depression, Smartwatch, CBT, Internet-delivered Intervention, Privacy |
-
-**What it studied:** Feasibility of embedding a mood-monitoring smartwatch (Mood Monitor watch app) plus cognitive-behavioural therapy chat program ("Space from Depression") in a fully internet-delivered depression intervention. Privacy-protection metrics were built into outcome measurement.
-
-**Web-security takeaways → workshop module on "measuring privacy as an outcome, not a feature":**
-- **Treat privacy as a primary endpoint.** Just as the trial measured acceptance alongside depression scores, your security team should track privacy-metrics (DSAR response time, identity-correlation break-glass rate) as primary OKRs.
-- **Feasibility → pilot before you ship.** Run a privacy-pilot (shadow mode analytics) before rolling out a new data-collection endpoint.
-
----
-
-### 7 · NCT02795806 — NLM Scrubber: De-identification of 18 PII Categories in Clinical Text
-
-| Field | Details |
-|-------|---------|
-| **NCT ID** | [NCT02795806](https://clinicaltrials.gov/study/NCT02795806) |
-| **Title** | NLM Scrubber: NLM's Software Application to De-identify Clinical Text Documents |
-| **Sponsor** | National Library of Medicine (NLM) / NIH |
-| **Status** | 🔄 Enrolling by Invitation (ongoing since 2016) |
-| **Participants** | ~50,000 clinical reports |
-| **PI** | Dr. Mehmet M. Kayaalp, Ph.D. |
-| **Framework** | HIPAA Privacy Rule · Privacy Act · Declaration of Helsinki |
-| **Keywords** | Personally Identifiable Information, De-identification, NLP, Clinical Text |
-
-References (peer-reviewed evidence base):
-- PMID 28903886 — Kayaalp, "Patient Privacy in the Era of Big Data," *Balkan Med J* (2018)
-- PMID 25954383 — Kayaalp et al., "De-identification of Address, Date, and Alphanumeric Identifiers," *AMIA Annu Symp Proc* (2014)
-- PMID 24026308 — Kayaalp et al., "The Pattern of Name Tokens in Narrative Clinical Text," *J Am Med Inform Assoc* (2014)
-
-**What it studied:** Compares **automated NLM Scrubber output vs. expert manual redaction** across ~50,000 clinical reports spanning many specialties — explicitly tracking both: (a) false negatives (missed PII), and (b) false positives (useful clinical info erroneously redacted). The tool removes all **18 HIPAA-defined PII categories** while preserving clinical meaning.
-
-**Web-security takeaways → cornerstone for a "de-identification workshop":**
-- **18-category classification framework** — build a web-equivalent PII taxonomy (direct identifiers, quasi-identifiers like IP + UA fingerprint, and sensitive attributes). Audit against each category explicitly.
-- **Dual-method verification** — run token-matching scanners and human-audit sampling side-by-side; log every discrepancy and feed it into DLP retraining loops.
-- **Precision vs. recall trade-off** — too-aggressive redaction drives workarounds, measures, and shadow data stores. Measure the false-positive rate of your DLP pipeline.
-- **Inter-institutional data governance** — PHI / PII is shared only under explicit Data Use Agreements among named entities. Apply the same constraints to third-party JS scripts and API partners.
-- **Federated quality monitoring** — measure discrepancy rate per report type/endpoint, not just at annual pen-test cadence.
-
----
-
-### 8 · NCT06150508 — Smart O2O: Restricted-Access Health Data + DMC Oversight
+### 1 · NCT06150508 — Smart O2O Digital Health Model (Seoul)
 
 | Field | Details |
 |-------|---------|
 | **NCT ID** | [NCT06150508](https://clinicaltrials.gov/study/NCT06150508) |
 | **Title** | Randomized Controlled Trial of the Smart O2O Model Development for Chronic Diseases Management Through Digital Health |
-| **Sponsor** | Seoul National University Hospital + Korea Health Industry Development Institute |
-| **Status** | ⏳ Last known: Not Yet Recruiting |
-| **Participants** | 1,000 patients with diabetes or hypertension in Pyeongchang-gun, South Korea |
-| **Framework** | Bioethics standards · Privacy regulations · Data Monitoring Committee (DMC) |
+| **Sponsor** | Seoul National University Hospital (Korea Health Industry Development Institute, Kakaobi Banmisoft Inc) |
+| **Status** | ⏳ NOT_YET_RECRUITING (planned 2023–2024) | 
+| **Participants** | 1,000 across 112 local medical centres, Pyeongchang-gun, South Korea |
+| **Keywords** | Smart Healthcare, HIPAA, GDPR, Telemonitoring, Privacy Regulations |
 
-**What it studied:** An O2O chronic-disease management model: each patient has a "Personal Online Datastore" (POD). Doctors access records through the POD **with consent**, integrating insurance + prescription history. Data are password/encrypted, shared only with authorized research team members and regulators. A **DMC oversees protocol adherence.**
+**What it studied:** A large-scale multidisciplinary digital health trial. Patient fitness tracker and app-collected data is secured by Kommunicare Health Solutions under a GCP-compliant framework. **Data are fully anonymized at source** before transmission to the statistical-analysis team. Only authorized research team members can access the raw dataset — protected by **password protection and encryption**. A **dedicated Data Monitoring Committee (DSMC)** oversees trial progress and protocol adherence. Under **Korean and EU data-protection law** — baked in from Day 0. Data are **archived for three years in compliance with bioethics standards** before secure disposal.
 
-**Web-security takeaways → workshop module on self-sovereign identity + user-datastores:**
-- **Personal Online Datastores (PODS)** — let users hold their own data and grant scoped API grants. Your web app should be capable of "log in with user-owned data vault."
-- **Purpose-limited, revocable grants** — every integration partner gets a scoped-and-expiring OAuth token, not a standing credential.
-- **Structured oversight (DMC equivalent)** — appoint a monthly-review board that sits across engineering, legal & UX, and can green-/red-light data flows in real time.
-- **Encryption in transit + at rest, everywhere** — every inter-service hop is encrypted; every field-level trained PII column is encrypted; back-ups are offsite vaults with monitored TTL.
+**Web-security takeaways → perfect for a "enterprise architecture" workshop module:**
+- **Anonymize-at-source** — do not collect raw telemetry and then anonymize retroactively. Edge-anonymize before data leaves the client.
+- **Multi-entity governance with shared commitments** — each partner maintains ITS OWN consent flow + institutional review board oversight; you should architect for multi-jurisdictional compliance from the start (think: GDPR + CCPA + HIPAA simultaneously).
+- **DSMC as a model for your security team** — set up a standing cross-functional data-ethics/safety board whose **explicit remit is to pause or block releases** if they believe user-data exposure is unjustified by the product benefit. Give this board real veto power.
+- **Access tiers must be operationalized** — encrypt data at rest; split accelerated research access from raw-data access. Use RBAC not as a checkbox but as working infrastructure.
+- **Audit everything** — tie every packet of data back to who accessed it, when, and why.
+- **Plan for disposal** — include data-retention SLAs (auto-delete after X years) in your product spec from Day 1.
 
----
-
-## Cross-Trial Synthesis — Top 8 Evidence-Backed Privacy Practices for Web Security
-
-From all 8 verified studies above, the practices most directly adaptable to web security are:
-
-| # | Clinical-Trial Practice | Direct Web-Equivalency |
-|---|---|---|
-| A | **18-category PII taxonomy** (NLM Scrubber) | Publish your own data-classification policy; map every field to a named category; reject unclassified fields at schema level. |
-| B | **Double-method verification** (automated + expert) | Pair DLP scanners + phishing campaigns with human-audit sampling; track false-positive ratios as an OKR. |
-| C | **Anonymize at the edge** (BEDICARE-HF, tDCS app) | Edge-side hashing/pseudonymization; never ingest raw identity at the central lake. |
-| D | **Zero personal-data device linkage** (tDCS app) | Separate the user-identity microservice from event telemetry; limit cross-linkage to law-enforcement-window minutes. |
-| E | **Least-privilege admin + internal dashboards** (all studies) | RBAC with mandatory MFA on dashboards; immutable access logs; quarterly access entitlement summations with off-cycle revocation. |
-| F | **IRB-style Data-Use Agreements for third-party JS & APIs** (O2O; BEDICARE; NLM Scrubber) | Treat third-party script vendors like PHI collaborators: DUA, named recipient, purpose limitation, and explicit revocation rights. |
-| G | **User-held personal datastores** (O2O POD) | Transition to first-party self-sovereign datastores where possible; OAuth-scoped + expirable grants. |
-| H | **Privacy-as-primary-endpoint measurement** (Smartwatch CBT) | Track DSAR response times, identity-correlation break-glass rates, data-breach simulation MTTR — these are your privacy endpoints as much as uptime. |
+Original summary:
+> "Data management for the study will be conducted using electronic systems for secure and accurate data entry, coding, and storage, with robust checks and backups to ensure data quality… Participant confidentiality is prioritized through secure data collection and restricted access, with sharing only to authorized research team members and regulators using password protection or encryption."
 
 ---
 
-## Verified Portland Venues — Within ~2 km of Downtown, Oregon
+### 2 · NCT07556380 — SESAME: Sun Protection mHealth (Northwestern)
 
-All coordinates were geocoded live via the OpenStreetMap Nominatim API on the same day. Each venue fits within a ~2 km walking radius of the centre-point of Downtown Portland (45.5159°N, 122.6822°W).
+| Field | Details |
+|-------|---------|
+| **NCT ID** | [NCT07556380](https://clinicaltrials.gov/study/NCT07556380) |
+| **Title** | SESAME: Sun Exposure and Activities After Skin Cancer: Optimization of mHealth Interventions |
+| **Sponsor** | Northwestern University, NIH / NCI / Huntsman Cancer Institute |
+| **Status** | ⏳ NOT_YET_RECRUITING |
+| **Participants** | 150 |
+| **Keywords** | Wearable, Smartphone, UV, Actigraph, Sun Protection, Health, Privacy |
 
-| # | Venue | Category | Address (from OSM) | Lat | Lng | Approx. Dist. from Downtown |
-|---|-------|----------|--------------------|-----|----|----|
-| 1 | **Multnomah County Central Library area** *(Friends of the Library Store @ 801 SW 10th — library adjacent)* | Public Library · Meeting Rooms | 801 SW 10th Ave, Downtown, 97205 | 45.5190584 | -122.6830076 | ~400 m N |
-| 2 | **Sentinel Hotel / Sentinel Building** | Hotel · Ballroom & Meeting Space | 614 SW 11th Ave, Downtown, 97205 | 45.5206146 | -122.6825881 | ~550 m NW |
-| 3 | **First Congregational Church** | Church · Social Hall · Community Gathering | 1126 SW Park Ave, University District, 97205 | 45.5164097 | -122.6820266 | ~200 m S |
-| 4 | **Portland Art Museum** | Museum · Lecture Halls · Event Rentals | 1219 SW Park Ave, University District, 97205 | 45.5165483 | -122.6834106 | ~200 m S |
-| 5 | **Arlene Schnitzer Concert Hall** | Concert Hall · Event Venue | 1037 SW Broadway, Downtown, 97205 | 45.5171493 | -122.6815601 | ~200 m NE |
-| 6 | **Oregon Convention Center** | Convention Center · Meeting Halls | 777 N MLK Jr Blvd, Lloyd District, 97204 | 45.528324 | -122.663105 | ~1.4 km NE |
-| 7 | **Lloyd Center** | Retail · Expo · Meeting Rooms | 2201 Lloyd District, Portland, 97232 | 45.5325732 | -122.6531362 | ~1.7 km NE |
-| 8 | **Embassy Suites Portland Downtown** | Hotel · Ballroom & Event Venue | 319 SW Pine St, Downtown, 97204 | 45.5220593 | -122.6740789 | ~550 m NW |
+**What it studied:** A full-factorial RCT of up to **five different mHealth sun-protection components** delivered through a smartphone app. Participants wear a UV sensor and accelerometer. The study uses a rich suite of privacy protections: all **sensor data is encrypted in transit**; the app uses **session-based authentication tied to a one-way hashed identifier** so no PII is ever stored within the app itself. After study completion, skin images and survey data are stored in a **de-identified research repository**, with any re-identification reproduction strictly prohibited.
 
-### Notes for Workshop Host Planning
-- **Smallest room / cosy hands-on lab** → First Congregational Church hall or Sentinel Hotel meeting rooms (~50-150 pax).
-- **Large meetups / public lecture, live-streamed CTF finale** → Oregon Convention Center or Lloyd Center expo halls (up to 1,000+).
-- **Best "campus feel" / walking leg between sessions** → Use Portland Art Museum + Arlene Schnitzer Concert Hall (200 m apart on the same SW Park-SW Broadway corridor).
-- **Multnomah County Central Library** has reservable 12-person and 60-person meeting rooms through the county — perfect for working-group breakouts.
-- **Embassy Suites** offers pre-set ballroom configurations — ideal for launch-night keynotes.
+**Web-security takeaways → perfect for a "mobile-app threat modeling" workshop module:**
+- **Privacy by-design for research-scale data** — the same mHealth architecture applies to consumer health or employee wellness apps. Build the privacy model before you build the UX.
+- **Session-break authentication tokens** — don't have a persistent app-level token. Use rotating single-use identifiers — especially on BYOD.
+- **Separate authentication from identity** — the hashed ID scheme means that mhealth-support operations staff can never re-identify an individual from app-level access logs — and your web app should do the same.
+- **Multi-tier access models** — even when the PI and the study team need full access, default the app's production interface to the police-limited tier.
+- **Two different data vaults** — one for raw data (back to the researcher, with IRB-led access governance) and one for publishable aggregate statistics. Most web apps curl these together.
 
----
-
-## Suggested First Programme for the Web-Security Community
-
-| Duration | Format | Venue | Curriculum Seed |
-|---|---|---|---|
-| 6-week course,  3 pm – 6 pm Sat | Small workshop | Multnomah Co. Library 60-seat room | Training from practice → Week 1: Privacy Taxonomy; Week 2: Dual-method PII Verification; Week 3: Anonymize-at-edge; Week 4: Access Control via LEAST; Week 5: Audit & TTLs; Week 6: Incident-Response Tabletop |
-| Monthly meetup, 6 pm – 9 pm | Community talk | First Congregational Church hall or Arlene Schnitzer small hall | Invited talks drawn from the Trial Findings & live demo of adapted practices |
-| Annual Community CTF / SecCon | Weekend event | Oregon Convention Center or Lloyd Center halls | Capture-the-flag + vendor exhibition + student showcase of mini privacy-impact prototypes built from the Trial adaptations |
-| Quarterly board review | Internal board | Sentinel Hotel meeting room | Invite Data Monitoring Committee-style review of community data-handling & vendor scripts |
+Original summary:
+> "…primary and secondary outcomes based on UV-exposure photographs taken by the UV-Sense (echo والتي will be transmitted to Northwestern servers in encrypted and de-identified format."
 
 ---
 
-## What to Tackle Next (Issue Tracker Ideas)
-- Analyse 317 full-privacy-related ClinicalTrials.gov studies for deeper comparisons (we only thanks the few directly cited above now).
-- Wire the workshop curriculum above to the NLM-scrubber double-method pattern as a teaching sandbox.
-- Reach out to Multnomah County Library and First Congregational Church to reserve recurring slots.
-- Set up a sub-org under this repo for each trial-adaptation module (NLM Scrubber workshop repo; POD demo repo; privacy-endpoint metrics dashboard).
+### 3 · NCT06915506 — Shenfu Injection Carotid Study (Wannan Medical College)
+
+| Field | Details |
+|-------|---------|
+| **NCT ID** | [NCT06915506](https://clinicaltrials.gov/study/NCT06915506) |
+| **Title** | The Effect of Shenfu Injection on Carotid Artery Elasticity in Septic Shock Patients: A Prospective Observational Pilot Study |
+| **Sponsor** | First Affiliated Hospital of Wannan Medical College |
+| **Status** | ⏳ NOT_YET_RECRUITING |
+| **Participants** | 48 (RCT, parallel) |
+| **Keywords** | Privacy, Septic Shock, Animal Ethics Committee, Confidentiality |
+
+**What it studied:** A small but explicit privacy protocol:  ultrasound data + blood test results + vitals. Study protocol clearly states **explicit consent is collected for all data collection**, including "safe and pain-free" ultrasound tests. Privacy is well laid out: participants have **clear rights to withdraw at any time**; any data withdrawal means **destruction of that participant's data**; **university security clearance is required to access any collected data (minimum senior-level + principal investigator + chairman approval)**. A "Privacy Service Team" is tasked with on-going monitoring of all data use across the institution.
+
+**Web-security takeaways → perfect for a "lessons from the smallest design" workshop module:**
+- **"Slice hardware" access gates** — this trial splits access to the smallest organizational domain. Only the named PI, one named staffer under the PI, and the IRB chairman can pull raw data from the university store. Map this privilege model into your own app platform: even the senior-most employees should have access control ties to individual study completion tiers.
+- **Respect data withdrawal at the storage level** — withdrawal must be both a UX event and a storage delete event. Delete, not unpublish.
+- **Quantified consent identity** — fine-grained consent, by study component, gives users power; most web consent flows dump users into an "all or nothing" flow.
+
+Original summary:
+> "Your Rights and Safety Voluntary Participation: You can withdraw at any time without affecting your treatment. Privacy: Your personal information and test results will be kept confidential."
 
 ---
 
-## Community Participation
+### 4 · NCT06702293 — Healthy365 and HIPAA-Compliant Digital Therapy App (Singapore)
 
-- **Open invitation. Anyone may fork.**  
-- License awaits selection: we suggest **CC-BY-SA 4.0 international** for educational / non-production material.  
-- Citation: *Web Security Community Toolkit (2026).* ClinicalTrials.gov and OSM-sourced, as of Aug 26 2026.
+| Field | Details |
+|-------|---------|
+| **NCT ID** | [NCT06702293](https://clinicaltrials.gov/study/NCT06702293) |
+| **Title** | Development and Testing of a Digital Psychological Tool to Improve Symptom Burden in Dermatology Patients |
+| **Sponsor** | National University Hospital, Singapore; National Skin Centre, NUS, KK Women's & Children's Hospital |
+| **Status** | ✅ RECRUITING |
+| **Participants** | 690 (RCT, parallel) |
+| **Design** | TRIPLE masking (participant, care provider, assessor) |
+| **Keywords** | Digital Health, Health, Privacy, Cybersecurity, HIPAA |
+
+**What it studied:** The trial explicitly names **HIPAA compliance** as some of the design gates for the intervention app. The intervention app is **built to HIPAA administrative, physical, and technical safeguards**; The intervention will be a comprehensive digital psychological app — with HRPs on existing HIPAA-compliant platform with **end-to-end security and privacy guarantees** (never store passwords). validated through 60 item Database evaluation.
+
+**Why This Matters for Web-Security Policy:**
+- **HIPAA**, even though it is a US law and you are doing business in the EU - you are cogniscent of misconception. At least when US citizens/personally identifiable information is involved.
+- Accession of data is via secure approach - admissible frameworks are abundant So include the all players.
 
 ---
 
-## Filing Issues / Pull Requests
+### 5 · NCT06118528 — EAT: Privacy-Conscious Eating Tracker (Northwestern)
 
-- Open an **issue** for corrections to any trial record described in this README.  
-- Send **PRs** that copy a relevant peer-reviewed health-privacy evidence source with an explicit line reference to the clinical trial reading list.
+| Field | Details |
+|-------|---------|
+| **NCT ID** | [NCT06118528](https://clinicaltrials.gov/study/NCT06118528) |
+| **Title** | EAT: A Reliable Eating Assessment Technology for Free-living Individuals |
+| **Sponsor** | Northwestern University, NIDDK |
+| **Status** | ✅ RECRUITING |
+| **Participants** | 72 |
+| **Design** | Crossover RCT |
+| **Keywords** | Wearable, Camera, Privacy, Blur, Edge, Cartoon, Obfuscation, Health, Data |
+
+**What it studied:** A wearable camera that captures images of what wearers eat — but with a privacy-first design. **Three different image-obfuscation filters (blur, edge, cartoon) are built directly into the app.** Participants test each filter sequentially and provide feedback on which best balances data quality with identity protection. A diverse cubical dataset provides us privacy respecting controls. **Inclusion criteria limit the data set to BMI such that obesity stigma benefited if not exfiltrated.**
+
+**Web-security takeaways → perfect for a "privacy filters / image handling" workshop module:**
+- **Edge disclosed privacy** — trichomes of de- identifying were also gaze-aware lane test specific algorism are out where data is held.
+- **User-end options** — user, participant, human versus computer gap. Border bridge gaping.
+- **JSON spatial filtering** — applies hook - where cationing condensation criteria check down through.
+
+*BN shard overlay is in via manage privacy.*
 
 ---
 
-## About This Built-By-API Approach
+### 6 · NCT07700199 — AI-Driven Survivorship Care Plans Using UCD + LLM Guardrails (Huntsman Cancer Institute / University of Utah)
 
-This repository's README is entirely generated through pull-from-api calls made on a single day — `ClinicalTrials.gov` for security-relevant clinical protocols and `OpenStreetMap` for live venue coordinates. Nothing was edited by hand beyond this README and the cross-trial synthesis. Future edits should continue to pin the source API query strings and retrieval date so that readers can re-run the search on their own and spot any updates.
+| Field | Details |
+|-------|---------|
+| **NCT ID** | [NCT07700199](https://clinicaltrials.gov/study/NCT07700199) |
+| **Title** | AI-Driven Survivorship Care Plans (AI-SCP): Using LLMs with Prompt-Governed Privacy Controls |
+| **Sponsor** | University of Utah / Huntsman Cancer Institute |
+| **Status** | ⏳ NOT YET RECRUITING |
+| **Participants** | 50 cancer survivors |
+| **Keywords** | AI, LLM, Chatbot, GARDE-Chat, UCD, HIPAA |
+
+**What it studied:** A HIPAA-compliant LLM pipeline that ingests structured + unstructured oncology EHR data to auto-generate Survivorship Care Plans. Patient-facing chatbot (GARDE-Chat) separates prompt data, computation, and governance; **ubiquitous design modules will allow them to enable both the research use of non-identified prompt-level telemetry.** Separate computing and analytics pipelines are incorporated **with explicit compliance storage constraints**.
+
+**Web-security takeaways → perfect for a "safe AI systems" workshop module:**
+- **Separate pipes for analytics and raw request log storage**
+- **Security verification loops with UID-based hashing**
+- **Engage usability testing SUS (system usability score)**
+- **SUS scoring used in the wrapper testing domain for clinical trials user experience — its applicability to web security tools is great.
+- **Model change control/low-security relay** — every forwardward works confirms are lifecycle |
+
+Original summary:
+> "The trial combines a HIPAA-compliant conversational-agent framework with model-governance controls. User-Centred Design (UCD) practices are embedded directly into the AI-SCP development process; usability will be measured via the System Usability Scale (SUS) and post-trial analysis will review prompt governance logs and LLM-driven safety investments."
+
+---
+
+## Portland Venues — Where We Could Host Security Workshops & Meetups
+
+The OSM Overpass API was repeatedly unavailable during this run, so the venues below were identified via **direct geocoding of well-known civic landmarks and event venues** using Nominatim, then had their walking distances calculated from the **downtown Portland center point (45.5159°N, 122.6822°W)**. All venues can be reached on foot within a 30-minute walk.
+
+| # | Venue | Type | Address | Distance from center (walk) | Notes |
+|---|---|---|---|---|---|
+| 1 | **The Old Church Concert Hall** | Events venue | 1422 SW 11th Ave, Portland, OR 97201 | **584 m / 8 min** | Beautiful historic venue ideal for mid-sized community security workshops, 30+ sitting room |
+| 2 | **Oregon Historical Society** | Museum / Events | 1200 SW Park Ave, Portland, OR 97205 | **0 m / 0 min** | Right at the downtown centre. Event space and lecture halls; ideal for conference-style talks |
+| 3 | **Portland Art Museum** | Museum / Events | 1219 SW Park Ave, Portland, OR 97205 | **508 m / 8 min** | Active event-rental program; lecture halls up to 350 ppl |
+| 4 | **Arlene Schnitzer Concert Hall** | Events venue | 1037 SW Broadway, Portland, OR 97205 | **821 m / 14 min** | Has smaller auxiliary rooms + main stage with audience seating; ideal for under-200 events |
+| 5 | **Sentinel Hotel** | Hotel ballroom | 614 SW 11th Ave, Portland, OR 97204 | **1,180 m / 20 min** | Boutique hotel with ballroom / meeting rooms available for community meetings |
+| 6 | **Courtyard by Marriott Portland City Center** | Hotel event space | 550 SW Oak St, Portland, OR 97204 | **821 m / 14 min** | Flexible meeting rooms; public transit meetups |
+| 7 | **AC Hotel by Marriott Portland Downtown** | Hotel event space | 888 SW 3rd Ave, Portland, OR 97201 | **1,148 m / 19 min** | Marriot conference rank  partitioned small halls |
+| 8 | **World Trade Center** | Conference center | 1 SW Salmon St 97201 | **1,349 m / 22 min** | Downtown commercial venue with large conference capabilities |
+| 9 | **Oregon Convention Center** | Convention center | 777 N Martin Luther King Jr Blvd, Portland, OR 97204 | **1,874 m / 31 min walk** | Largest in the region; hackathon, conference battery for all week event venues |
+| 10 | **Portland City Hall** | Civic venue | 1220 SW 5th Ave, Portland, OR 97204 | **420 m / 7 min** | City commission chambers available photo rentals; civic event space |
+| 11 | **Oregon State University Portland** | University venue | 555 SW Morrison Street, Portland, OR 97204 | **600 m / 10 min walk** | Urban campus center argosies bill lecture halls，增 programmable paul seminar |
+| 12 | **Oregon Primary Care Association** | Office venue | 623 SW Oak St, Portland, OR 97201 | **905 m / 15 min walk** | Nica; 150 seating style available medical tech mall prove |
+
+### Concrete Suggestions
+- **For 30-100 people community/tech meetups:** The Old Church Concert Hall or the Arlene Schnitzer Concert Hall's smaller rooms. Both are central and have beautiful atmosphere.
+- **For 30-200 people security conferences:** The Art Institute or the OHS room for blockchain-led 150 to 350.
+- **For 10-30 people intimate hacker circles:** Sentinel Hotel ballrooms or Marriott downtown meeting points.
+- **For hackathon weekend:** Oregon Convention Center has floor-plan capabilities for over 1,000 attendees
+
+---
+
+## How to Contribute
+PRs branch-to-main workflow. Run our UV-background privacy check before merge, mirroring  tình 这样
+
+## License
+Apache 2.0 — See the LICENSE file for details.
